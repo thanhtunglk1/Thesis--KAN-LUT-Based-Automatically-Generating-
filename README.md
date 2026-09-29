@@ -177,7 +177,7 @@ Mỗi nút: acc = Σ values_int[địa chỉ]  (bỏ qua cạnh active=0)
 
 #### 3.3 Kiểm tra nhanh (`quick_match_check`)
 
-Chạy 10 mẫu ngẫu nhiên qua **model float-QAT** và **model LUT**, in sai số lớn nhất và xem `argmax` có trùng không. Nếu `MISMATCH` hoặc `Classification Incorrect` thì **dừng lại**, đừng sinh phần cứng vội.
+Chạy n mẫu ngẫu nhiên qua **model float-QAT** và **model LUT**, in sai số lớn nhất và xem `argmax` có trùng không. Nếu `MISMATCH` hoặc `Classification Incorrect` thì **dừng lại**, đừng sinh phần cứng vội.
 
 #### 3.4 Sinh firmware (`generate_firmware`)
 
@@ -225,7 +225,7 @@ i_vector[i] / out_{l-1}_i_reg
 
 - **Bề rộng cộng đủ lớn:** mỗi tầng cộng mở rộng thêm `ceil(log2(n_add))` bit biểu diễn nên không bao giờ tràn giữa chừng. Chỉ bão hòa **một lần ở cuối**, giống hệt `clip` trong golden model.
 - **Địa chỉ ROM = mã bù 2 của giá trị có dấu.** Mã bù 2 của số âm nằm ở nửa trên của không gian địa chỉ, nên `write_pkg_file` **hoán đổi hai nửa** của bảng (`values[half:] + values[:half]`) để địa chỉ bit thô trỏ đúng phần tử.
-- **Nút không còn cạnh vào:** không sinh logic (nhờ forward pruning, cạnh ra của nó cũng đã bị cắt). Riêng ở lớp cuối, `o_vector[j]` được gán `'0`.
+- **Nút không còn cạnh vào:** không sinh logic (nhờ forward pruning, cạnh ra của nó cũng đã bị cắt).
 
 ![](./image/LUT_mapping.png)
 
