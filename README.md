@@ -249,6 +249,8 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 
 #### 3.5 Sinh vector test (`test_from_dataset`)
 
+![](./image/test_flow.png)
+
 `convert.py` lấy tập con **cân bằng** của MNIST test (`N=100` ảnh/lớp = 1000 vector, có seed để tái lập), rồi:
 
 1. Cho ảnh qua lớp input lượng tử hóa → số nguyên (vector đầu vào cho RTL).
