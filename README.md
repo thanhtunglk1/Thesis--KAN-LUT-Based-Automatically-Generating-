@@ -9,23 +9,22 @@ Flow tự động chuyển một mạng **KAN (Kolmogorov-Arnold Network)** đã
 Trong KAN, mỗi **cạnh (edge)** nối nút vào `i` với nút ra `j` là một hàm 1 biến học được:
 
 ```
-φ(x) = w_base · SiLU(x) + Σ_k c_k · B_k(x)      (B_k là B-spline bậc 3, grid 5)
+φ(x) = w_base · SiLU(x) + w_spline · Σ_k c_k · B_k(x)  
 ```
 
 Nút ra là tổng các hàm trên mọi cạnh đi vào: `y_j = Σ_i φ_{j,i}(x_i)`.
 
 Nếu đầu vào `x_i` chỉ nhận **một số ít mức lượng tử** (ví dụ 1 bit hoặc 6 bit), thì `φ(x)` chỉ có **2^bits giá trị khả dĩ**. Ta có thể tính trước toàn bộ và lưu thành bảng tra:
 
+![](./image/LUT_mapping.png)
+
 > **Mỗi cạnh KAN = 1 LUT (ROM) có 2^bits_in phần tử, mỗi phần tử rộng bits_out bit.**
 > **Mỗi nút = 1 cây cộng các đầu ra LUT + bão hòa (saturate).**
 
 Phần cứng cuối cùng **không có phép nhân, không có SiLU, không có spline**. Chỉ có ROM, bộ cộng và thanh ghi.
 
-```
-x_i (bits_in) ──► [ LUT φ_{j,i} ] ──► (bits_out) ─┐
-x_k (bits_in) ──► [ LUT φ_{j,k} ] ──► (bits_out) ─┼─► Σ ─► saturate ─► y_j
-      ...                                         ─┘
-```
+![](./image/adder_tree_2.png)
+
 
 Cạnh nào bị **pruning** (cắt tỉa) thì **không sinh phần cứng** → tiết kiệm tài nguyên trực tiếp.
 
@@ -33,17 +32,7 @@ Cạnh nào bị **pruning** (cắt tỉa) thì **không sinh phần cứng** �
 
 ## 2. Tổng quan flow
 
-```mermaid
-flowchart TD
-    A["1. KAN_float.py<br/>Train KAN float (baseline)"] -.tham chiếu độ chính xác.-> B
-    B["2. KAN_quant.py<br/>QAT (Brevitas) + Pruning<br/>→ config.json + .pth"] --> C
-    C["3. convert.py<br/>Load checkpoint → KAN_LUT"] --> D
-    D["Sinh truth_table.json<br/>(mỗi cạnh 1 bảng số nguyên)"] --> E
-    E["quick_match_check()<br/>Model float-QAT vs Model LUT"] --> F
-    F["generate_firmware()<br/>Sinh RTL từ template"] --> G
-    G["test_from_dataset()<br/>Sinh vector test từ MNIST"] --> H
-    H["make sim (xrun)<br/>Mô phỏng RTL vs golden model"]
-```
+![](./image/overall_architecture.png)
 
 | Bước | File chạy | Đầu ra chính |
 |------|-----------|--------------|
@@ -69,7 +58,7 @@ project/
 │       │         single_port_ram.sv, saturate_clip.sv, gte_comp_sign.sv
 │       ├── tb/   tb_kan.sv
 │       └── sim/  flist.f, Makefile
-└── mnist/                       # Thư mục thực nghiệm
+└── MNIST/                       # Thư mục thực nghiệm
     ├── KAN_float.py
     ├── KAN_quant.py
     ├── convert.py
@@ -85,7 +74,7 @@ project/
 
 ---
 
-## 4. Chi tiết từng bước (MNIST)
+## 4. Chi tiết từng bước (Ví dụ với MNIST)
 
 ### Bước 1 – Train KAN float (`KAN_float.py`)
 
@@ -114,6 +103,9 @@ Pixel → `BatchNorm1d` → cộng bias `-0.25` → `QuantHardTanh` 1 bit. Mỗi
 Trong `KANLinear.forward`, mỗi cạnh được tính `φ(x)`, **lượng tử hóa** (`output_quantizer`), nhân mask `spline_selector`, rồi mới cộng lại và lượng tử hóa lần nữa. Nhờ vậy mô hình khi train **đã mô phỏng đúng** việc "mỗi cạnh là một số nguyên `bits_out` bit, tổng bị bão hòa" của phần cứng.
 
 **c) Pruning.**
+
+![](./image/state_space_prune.png)
+
 Mỗi cạnh `(out, in)` có 1 bit mask trong `spline_selector`:
 
 1. Tính **RMS** của `φ(x)` trên toàn bộ state space của đầu vào cạnh đó.
@@ -123,6 +115,8 @@ Mỗi cạnh `(out, in)` có 1 bit mask trong `spline_selector`:
 5. **Forward pruning:** nút ở lớp `l` mà toàn bộ cạnh vào đã bị cắt (nút chết) → cắt các cạnh ra khỏi nút đó.
 
 Kết quả là mạng thưa; số cạnh còn lại = số ROM sẽ được sinh ra.
+
+
 
 **d) Lưu checkpoint.**
 Sau `target_epoch`, mỗi epoch lưu `models/<timestamp>/MNIST_Acc{..}_Loss{..}_Epoch{..}_Remainding{..}.pth`, cùng `config.json` trong thư mục đó. Chọn checkpoint tốt nhất, chép vào `models/final/` (kèm `config.json`).
