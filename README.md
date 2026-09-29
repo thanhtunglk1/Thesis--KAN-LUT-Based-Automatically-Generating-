@@ -1,6 +1,6 @@
 # Thesis-KAN-LUT-Based-Automatically-Generating-
 
-Flow tự động chuyển một mạng **KAN (Kolmogorov-Arnold Network)** đã huấn luyện thành **mã phần cứng SystemVerilog** dựa trên **LUT (Look-Up Table)**, kèm sẵn testbench và vector kiểm thử. Tài liệu này lấy bài toán **MNIST (784 → 64 → 10)** làm ví dụ xuyên suốt.
+Đồ án đề xuất một framework tự động chuyển một mạng **KAN (Kolmogorov-Arnold Network)** đã huấn luyện thành **mã phần cứng SystemVerilog** dựa trên **LUT (Look-Up Table)**, kèm sẵn testbench và vector kiểm thử. Tài liệu này lấy bài toán **MNIST (784 → 64 → 10)** làm ví dụ xuyên suốt.
 
 ---
 
@@ -14,9 +14,11 @@ Trong KAN, mỗi **cạnh (edge)** nối nút vào `i` với nút ra `j` là m�
 
 Nút ra là tổng các hàm trên mọi cạnh đi vào: `y_j = Σ_i φ_{j,i}(x_i)`.
 
+![](./image/kan_node.png)
+
 Nếu đầu vào `x_i` chỉ nhận **một số ít mức lượng tử** (ví dụ 1 bit hoặc 6 bit), thì `φ(x)` chỉ có **2^bits giá trị khả dĩ**. Ta có thể tính trước toàn bộ và lưu thành bảng tra:
 
-![](./image/LUT_mapping.png)
+
 
 > **Mỗi cạnh KAN = 1 LUT (ROM) có 2^bits_in phần tử, mỗi phần tử rộng bits_out bit.**
 > **Mỗi nút = 1 cây cộng các đầu ra LUT + bão hòa (saturate).**
@@ -24,7 +26,6 @@ Nếu đầu vào `x_i` chỉ nhận **một số ít mức lượng tử** (ví
 Phần cứng cuối cùng **không có phép nhân, không có SiLU, không có spline**. Chỉ có ROM, bộ cộng và thanh ghi.
 
 ![](./image/adder_tree_2.png)
-
 
 Cạnh nào bị **pruning** (cắt tỉa) thì **không sinh phần cứng** → tiết kiệm tài nguyên trực tiếp.
 
@@ -36,7 +37,7 @@ Cạnh nào bị **pruning** (cắt tỉa) thì **không sinh phần cứng** �
 
 | Bước | File chạy | Đầu ra chính |
 |------|-----------|--------------|
-| 1 | `KAN_float.py` | Baseline float (MNIST ~97.1% sau 50 epoch) |
+| 1 | `KAN_float.py` | Baseline float |
 | 2 | `KAN_quant.py` | `models/<timestamp>/config.json`, `MNIST_Acc..._Epoch..._Remainding....pth` |
 | 3 | `convert.py` | `truth_table.json`, `firmware/{src,tb,sim}` |
 | 4 | `make sim` | Log PASS/FAIL của từng vector test |
@@ -50,7 +51,7 @@ project/
 ├── common/                      # Thư viện dùng chung (sys.path.append('../common'))
 │   ├── KAN_OG.py                # KAN float gốc
 │   ├── KAN_Quant.py             # KANQuant: KAN lượng tử hóa + pruning mask
-│   ├── quant.py                 # Wrapper Brevitas, tính state space
+│   ├── quant.py                 # Wrapper Brevitas, tính state space (trích xuất scale-s và bit sau huấn luyện)
 │   ├── os_path.py               # Tiện ích: tìm checkpoint, vẽ đồ thị, fold BN
 │   ├── KAN_LUT.py               # ★ Lõi của flow: truth table + sinh RTL + sinh test vector
 │   └── templates/               # ★ Template RTL (có các placeholder {{...}})
@@ -75,6 +76,8 @@ project/
 ---
 
 ## 4. Chi tiết từng bước (Ví dụ với MNIST)
+
+![](./image/mnist_pipeline.png)
 
 ### Bước 1 – Train KAN float (`KAN_float.py`)
 
@@ -101,6 +104,8 @@ Pixel → `BatchNorm1d` → cộng bias `-0.25` → `QuantHardTanh` 1 bit. Mỗi
 
 **b) Lượng tử hóa đầu ra mỗi cạnh (QAT).**
 Trong `KANLinear.forward`, mỗi cạnh được tính `φ(x)`, **lượng tử hóa** (`output_quantizer`), nhân mask `spline_selector`, rồi mới cộng lại và lượng tử hóa lần nữa. Nhờ vậy mô hình khi train **đã mô phỏng đúng** việc "mỗi cạnh là một số nguyên `bits_out` bit, tổng bị bão hòa" của phần cứng.
+
+![](./image/quantized.png)
 
 **c) Pruning.**
 
@@ -153,6 +158,8 @@ Cách tính `values_int`:
 
 Kết quả được cache vào `truth_table.json`.
 
+![](./image/truth_table_gen.png)
+
 > ⚠️ Nếu `truth_table.json` đã tồn tại, nó sẽ được **dùng lại** mà không tính lại. Sau khi đổi checkpoint hoặc train lại, **xóa file này** trước khi chạy `convert.py`.
 
 #### 3.2 Golden model số nguyên (`KAN_LUT_inference`)
@@ -165,6 +172,8 @@ Lớp l : địa chỉ LUT = đầu ra lớp trước + 2^(bits-1)
 Mỗi nút: acc = Σ values_int[địa chỉ]  (bỏ qua cạnh active=0)
          acc = clip(acc, min_state, max_state)
 ```
+
+![](./image/inference_full.png)
 
 #### 3.3 Kiểm tra nhanh (`quick_match_check`)
 
@@ -204,7 +213,7 @@ i_vector[i] / out_{l-1}_i_reg
                              ▼
               ┌──── cây cộng n_add-ngõ, mỗi tầng 1 thanh ghi ────┐
                              ▼
-        sum_l_j_reg  (rộng bits_out + depth·log2(n_add))
+                sum_l_j_reg  (rộng bits_out + depth·log2(n_add))
                              ▼
                       saturate_clip  → về bits_out
                              ▼
@@ -214,9 +223,11 @@ i_vector[i] / out_{l-1}_i_reg
 
 Điểm quan trọng để phần cứng **khớp bit** với golden model:
 
-- **Bề rộng cộng đủ lớn:** mỗi tầng cộng nở thêm `ceil(log2(n_add))` bit nên không bao giờ tràn giữa chừng. Chỉ bão hòa **một lần ở cuối**, giống hệt `clip` trong golden model.
+- **Bề rộng cộng đủ lớn:** mỗi tầng cộng mở rộng thêm `ceil(log2(n_add))` bit biểu diễn nên không bao giờ tràn giữa chừng. Chỉ bão hòa **một lần ở cuối**, giống hệt `clip` trong golden model.
 - **Địa chỉ ROM = mã bù 2 của giá trị có dấu.** Mã bù 2 của số âm nằm ở nửa trên của không gian địa chỉ, nên `write_pkg_file` **hoán đổi hai nửa** của bảng (`values[half:] + values[:half]`) để địa chỉ bit thô trỏ đúng phần tử.
 - **Nút không còn cạnh vào:** không sinh logic (nhờ forward pruning, cạnh ra của nó cũng đã bị cắt). Riêng ở lớp cuối, `o_vector[j]` được gán `'0`.
+
+![](./image/LUT_mapping.png)
 
 **Độ trễ (latency)** được tính tự động:
 
@@ -232,6 +243,8 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 
 **`kan_top`**: bọc `kan_core` + thanh ghi đầu ra + `kan_argmax` + thanh ghi dịch `delay` để tạo tín hiệu `o_done` (lên đúng `TOTAL_DELAY + 1` chu kỳ sau `i_start`).
 
+![](./image/kan_top.png)
+
 #### 3.5 Sinh vector test (`test_from_dataset`)
 
 `convert.py` lấy tập con **cân bằng** của MNIST test (`N=100` ảnh/lớp = 1000 vector, có seed để tái lập), rồi:
@@ -241,7 +254,9 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 3. Ghi `vectors_in.txt`, `vectors_out.txt`, `pred_idx.txt` (và bản hex nếu `hex_gen=True`) vào `firmware/tb/`.
 4. Điền `{{TEXT}}` (số test) vào `tb_kan.sv`.
 
-### Bước 4 – Mô phỏng RTL
+### Bước 4 – Mô phỏng RTL 
+
+Framework hỗ trợ mô phỏng với Cadence EXCELIUM, khi đổi sang công cụ mô phỏng (modelsim, verilator,...) khác **cần thay đổi lại bước này**. File `tb_kan.sv` được tự động sinh vẫn hoạt động chính xác ở các công cụ mô phỏng khác.
 
 ```bash
 cd models/final/firmware/sim
@@ -299,20 +314,10 @@ Flow không phụ thuộc MNIST. Muốn dùng cho dataset khác, chỉ cần đ�
 
 Phần sinh RTL (`KAN_LUT.py` + `templates/`) tự đọc kích thước từ `config`, nên **không cần sửa**.
 
----
-
-## 7. Lưu ý và hạn chế hiện tại
-
-- **Tiền xử lý input nằm ngoài RTL.** `BatchNorm + bias + lượng tử hóa 1 bit` được thực hiện bằng phần mềm; phần cứng nhận vector đã lượng tử hóa (`vectors_in.txt`). Muốn đưa vào phần cứng, có thể fold BN + bias thành hệ số `A, C` (xem `extract_input_layer_params` trong `os_path.py`), khi đó mỗi pixel là một bộ so sánh với ngưỡng.
-- **Đồng bộ khoảng lượng tử lớp input.** `KAN_quant.py` (lúc train) dùng `min_val=-1, max_val=1`, còn `convert.py` dùng `config['grid_range']`. Vì `ParameterScaling(1.33)` đã cố định scale nên hiện không ảnh hưởng, nhưng nên thống nhất hai nơi này để tránh lệch khi đổi cấu hình.
-- **`truth_table.json` được cache**, nhớ xóa khi đổi checkpoint.
-- **Nếu chọn `n` khi được hỏi xóa thư mục `firmware`**, hàm `generate_firmware` thoát sớm và các placeholder trong template không được điền lại; hãy xóa thư mục cũ hoặc đổi `model_tag`.
-- **`quick_match_check` dùng ngưỡng `atol=5`** (đơn vị của đầu ra float) và đầu vào `torch.rand`; đây là kiểm tra nhanh, việc xác nhận cuối cùng vẫn là mô phỏng RTL trên dữ liệu MNIST thật.
-- Tài nguyên tỉ lệ thuận với **số cạnh còn lại** × (2^bits_in × bits_out) cho bảng tra; giảm `layers_width` hoặc tăng mức prune là hai đòn bẩy chính.
 
 ---
 
-## 8. Bảng tóm tắt file
+## 7. Bảng tóm tắt file
 
 | File | Vai trò |
 |------|---------|
