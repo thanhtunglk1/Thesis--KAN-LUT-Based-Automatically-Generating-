@@ -241,6 +241,8 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 
 **Argmax** (`build_argmax_sv`): cây so sánh nhị phân bằng `gte_comp_sign` (so sánh có dấu), truyền cả giá trị và chỉ số, tự chèn thanh ghi pipeline sau mỗi `levels_per_stage` tầng. Với 10 lớp: độ sâu cây = 4, `levels_per_stage=2` → 2 stage. Nút lẻ được chuyển thẳng lên tầng trên.
 
+![](./image/arg_max.png)
+
 **`kan_top`**: bọc `kan_core` + thanh ghi đầu ra + `kan_argmax` + thanh ghi dịch `delay` để tạo tín hiệu `o_done` (lên đúng `TOTAL_DELAY + 1` chu kỳ sau `i_start`).
 
 ![](./image/kan_top.png)
