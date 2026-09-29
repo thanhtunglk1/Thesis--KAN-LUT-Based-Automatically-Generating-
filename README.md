@@ -256,7 +256,7 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 
 ### Bước 4 – Mô phỏng RTL 
 
-Framework hỗ trợ mô phỏng với Cadence EXCELIUM, khi đổi sang công cụ mô phỏng (modelsim, verilator,...) khác **cần thay đổi lại bước này**. File `tb_kan.sv` được tự động sinh vẫn hoạt động chính xác ở các công cụ mô phỏng khác.
+Framework hỗ trợ mô phỏng với Cadence XCELIUM, khi đổi sang công cụ mô phỏng (modelsim, verilator,...) khác **cần thay đổi lại bước này**. File `tb_kan.sv` được tự động sinh vẫn hoạt động chính xác ở các công cụ mô phỏng khác.
 
 ```bash
 cd models/final/firmware/sim
