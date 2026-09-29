@@ -1,0 +1,6 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(03Jul2026:13:04:24):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s2::(04Jul2026:03:45:18):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )

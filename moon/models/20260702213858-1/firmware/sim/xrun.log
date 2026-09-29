@@ -1,0 +1,85 @@
+xrun(64): 20.09-s001: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s001: Started on Jul 02, 2026 at 12:32:59 EDT
+xrun
+	+xm64bit
+	-sv
+	-f ../sim/flist.f
+		../src/registers.sv
+		../src/lut_rom.sv
+		../src/single_port_ram.sv
+		../src/saturate_clip.sv
+		../src/KAN.sv
+		../tb/tb_kan.sv
+	-timescale 1ns/1ns
+	+ntb_random_seed=automatic
+	+access+rcw
+
+   User defined plus("+") options:
+	+ntb_random_seed=automatic
+
+Recompiling... reason: file '../tb/tb_kan.sv' is newer than expected.
+	expected: Thu Jul  2 12:31:33 2026
+	actual:   Thu Jul  2 12:32:56 2026
+file: ../tb/tb_kan.sv
+	module worklib.tb_kan:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		single_port_ram
+		tb_kan
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.tb_kan:sv <0x379bd824>
+			streams:  22, words: 22806
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                17       6
+		Registers:              81      52
+		Scalar wires:           14       -
+		Expanded wires:         12       1
+		Vectored wires:         58       -
+		Always blocks:          13       4
+		Initial blocks:         15      10
+		Parallel blocks:         1       1
+		Cont. assignments:      25      10
+		Pseudo assignments:     29      29
+		Simulation timescale:  1ns
+	Writing initial simulation snapshot: worklib.single_port_ram:sv
+Loading snapshot worklib.single_port_ram:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/cadence/XCELIUM2009/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,RMEMNOF: $readmem error: open failed on file "../mem/lut.mem".
+            File: ../src/single_port_ram.sv, line = 18, pos = 34
+           Scope: single_port_ram
+            Time: 0 FS + 0
+
+EXP: - vec = 0: [127]
+DUT: - vec = 0: [127]
+EXP: - vec = 1: [184]
+DUT: - vec = 1: [184]
+EXP: - vec = 2: [222]
+DUT: - vec = 2: [222]
+EXP: - vec = 3: [97]
+DUT: - vec = 3: [97]
+EXP: - vec = 4: [135]
+DUT: - vec = 4: [135]
+EXP: - vec = 5: [238]
+DUT: - vec = 5: [238]
+EXP: - vec = 6: [114]
+DUT: - vec = 6: [114]
+EXP: - vec = 7: [127]
+DUT: - vec = 7: [127]
+EXP: - vec = 8: [175]
+DUT: - vec = 8: [175]
+EXP: - vec = 9: [128]
+DUT: - vec = 9: [128]
+ALL TESTS PASSED (10 tests)
+Simulation complete via $finish(1) at time 1130 NS + 0
+../tb/tb_kan.sv:152         $finish;
+xcelium> exit
+TOOL:	xrun(64)	20.09-s001: Exiting on Jul 02, 2026 at 12:32:59 EDT  (total: 00:00:00)

@@ -1,0 +1,22 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++ntb_random_seed=automatic
++xm64bit
++access+rcw
+-timescale
+1ns/1ns
+-ACCESS
++rcw
+-MESSAGES
+-XLMODE
+./xcelium.d/run.lnx8664.20.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.20.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.20.09.d/hdl.var
+-WORK
+worklib
+-HASXLMODE

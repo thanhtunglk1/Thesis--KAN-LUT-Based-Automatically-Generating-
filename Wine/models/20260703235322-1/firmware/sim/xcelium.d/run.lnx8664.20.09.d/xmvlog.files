@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/admin/Mount/KANELE-main/me/Wine/models/20260703235322-1/firmware/src/registers.sv
+/home/admin/Mount/KANELE-main/me/Wine/models/20260703235322-1/firmware/src/lut_rom.sv
+/home/admin/Mount/KANELE-main/me/Wine/models/20260703235322-1/firmware/src/single_port_ram.sv
+/home/admin/Mount/KANELE-main/me/Wine/models/20260703235322-1/firmware/src/saturate_clip.sv
+/home/admin/Mount/KANELE-main/me/Wine/models/20260703235322-1/firmware/src/KAN.sv
+/home/admin/Mount/KANELE-main/me/Wine/models/20260703235322-1/firmware/tb/tb_kan.sv

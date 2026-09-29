@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/admin/Mount/KANELE-main/me/moon/models/20260702213858/firmware/src/registers.sv
+/home/admin/Mount/KANELE-main/me/moon/models/20260702213858/firmware/src/lut_rom.sv
+/home/admin/Mount/KANELE-main/me/moon/models/20260702213858/firmware/src/single_port_ram.sv
+/home/admin/Mount/KANELE-main/me/moon/models/20260702213858/firmware/src/saturate_clip.sv
+/home/admin/Mount/KANELE-main/me/moon/models/20260702213858/firmware/src/KAN.sv
+/home/admin/Mount/KANELE-main/me/moon/models/20260702213858/firmware/tb/tb_kan.sv

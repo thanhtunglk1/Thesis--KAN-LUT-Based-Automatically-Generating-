@@ -1,0 +1,16 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(02Jul2026:11:33:39):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s2::(02Jul2026:11:34:00):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s3::(02Jul2026:11:40:55):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s4::(02Jul2026:11:47:02):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s5::(02Jul2026:11:50:03):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s6::(02Jul2026:11:52:48):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s7::(02Jul2026:11:55:30):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s8::(02Jul2026:11:58:26):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s9::(02Jul2026:12:11:04):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s10::(02Jul2026:12:12:55):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s11::(02Jul2026:12:31:59):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
+s12::(02Jul2026:12:32:59):( xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )

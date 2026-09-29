@@ -1,0 +1,74 @@
+xrun(64): 20.09-s001: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s001: Started on Jul 04, 2026 at 03:45:18 EDT
+xrun
+	+xm64bit
+	-sv
+	-f ../sim/flist.f
+		../src/registers.sv
+		../src/lut_rom.sv
+		../src/single_port_ram.sv
+		../src/saturate_clip.sv
+		../src/KAN.sv
+		../tb/tb_kan.sv
+	-timescale 1ns/1ns
+	+ntb_random_seed=automatic
+	+access+rcw
+
+   User defined plus("+") options:
+	+ntb_random_seed=automatic
+
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		single_port_ram
+		tb_kan
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:               101       6
+		Registers:             399     154
+		Scalar wires:           26       -
+		Expanded wires:         78       1
+		Vectored wires:        348       -
+		Always blocks:          93       4
+		Initial blocks:         73      10
+		Parallel blocks:         1       1
+		Cont. assignments:     123      30
+		Pseudo assignments:    141     141
+		Simulation timescale:  1ns
+	Writing initial simulation snapshot: worklib.single_port_ram:sv
+Loading snapshot worklib.single_port_ram:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/cadence/XCELIUM2009/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,RMEMNOF: $readmem error: open failed on file "../mem/lut.mem".
+                      Scope: single_port_ram            Time: 0 FS + 0
+
+EXP: - vec = 0: [247, 16, 250]
+DUT: - vec = 0: [247, 16, 250]
+EXP: - vec = 1: [244, 248, 29]
+DUT: - vec = 1: [244, 248, 29]
+EXP: - vec = 2: [5, 248, 12]
+DUT: - vec = 2: [5, 248, 12]
+EXP: - vec = 3: [248, 2, 10]
+DUT: - vec = 3: [248, 2, 10]
+EXP: - vec = 4: [252, 6, 2]
+DUT: - vec = 4: [252, 6, 2]
+EXP: - vec = 5: [247, 12, 2]
+DUT: - vec = 5: [247, 12, 2]
+EXP: - vec = 6: [24, 254, 234]
+DUT: - vec = 6: [24, 254, 234]
+EXP: - vec = 7: [7, 253, 255]
+DUT: - vec = 7: [7, 253, 255]
+EXP: - vec = 8: [52, 252, 206]
+DUT: - vec = 8: [52, 252, 206]
+EXP: - vec = 9: [8, 17, 227]
+DUT: - vec = 9: [8, 17, 227]
+ALL TESTS PASSED (10 tests)
+Simulation complete via $finish(1) at time 1350 NS + 0
+../tb/tb_kan.sv:152         $finish;
+xcelium> exit
+TOOL:	xrun(64)	20.09-s001: Exiting on Jul 04, 2026 at 03:45:20 EDT  (total: 00:00:02)

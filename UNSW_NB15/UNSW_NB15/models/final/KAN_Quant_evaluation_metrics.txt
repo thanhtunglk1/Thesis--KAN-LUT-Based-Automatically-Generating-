@@ -1,0 +1,57 @@
+==============================
+KANQuant Final Evaluation
+==============================
+Accuracy  : 0.7178
+Precision : 0.8252
+Recall/DR : 0.7178
+F1-score  : 0.7473
+FPR       : 0.030745
+
+==============================
+FPR Each Class
+==============================
+Analysis                      : 0.042508
+Backdoor                      : 0.024098
+DoS                           : 0.003195
+Exploits                      : 0.076404
+Fuzzers                       : 0.103684
+Generic                       : 0.000173
+Normal                        : 0.013170
+Reconnaissance                : 0.012964
+Shellcode                     : 0.022220
+Worms                         : 0.009029
+
+==============================
+Confusion Matrix
+==============================
+                Analysis  Backdoor  DoS  Exploits  Fuzzers  Generic  Normal  Reconnaissance  Shellcode  Worms
+Analysis             144       119   12       401        0        0       1               0          0      0
+Backdoor             143       137   13       272        4        0       0               3         10      1
+DoS                  426       637  183      2550       69        5      10              49        105     55
+Exploits             593       770  120      8421      228        2      37             228        359    374
+Fuzzers              317       282   32       890     3195        0     529             216        548     53
+Generic                2        20   52       442       44    18162       4              18         45     82
+Normal              1958        65    5       482     7533        0   25722             467        620    148
+Reconnaissance        32        74   16       392       20        4      14            2789        130     25
+Shellcode              0         3    0         5        9        0       1              41        314      5
+Worms                  0         0    0         6        1        0       1               0          4     32
+
+==============================
+Classification Report
+==============================
+                precision    recall  f1-score   support
+
+      Analysis     0.0398    0.2127    0.0671       677
+      Backdoor     0.0650    0.2350    0.1019       583
+           DoS     0.4226    0.0448    0.0809      4089
+      Exploits     0.6075    0.7565    0.6739     11132
+       Fuzzers     0.2878    0.5271    0.3723      6062
+       Generic     0.9994    0.9624    0.9806     18871
+        Normal     0.9773    0.6952    0.8125     37000
+Reconnaissance     0.7318    0.7978    0.7634      3496
+     Shellcode     0.1471    0.8307    0.2499       378
+         Worms     0.0413    0.7273    0.0781        44
+
+      accuracy                         0.7178     82332
+     macro avg     0.4320    0.5789    0.4180     82332
+  weighted avg     0.8252    0.7178    0.7473     82332

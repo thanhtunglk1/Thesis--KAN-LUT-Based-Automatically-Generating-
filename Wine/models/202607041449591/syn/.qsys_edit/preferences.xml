@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="47" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library/Qsys Interconnect,Library/University Program/Audio &amp; Video/Video,Library/Qsys Interconnect/Memory-Mapped Alpha,Library/Basic Functions,Library,Project,Library/Basic Functions/On Chip Memory,Library/Qsys Interconnect/Memory-Mapped,Library/University Program,Library/University Program/Audio &amp; Video" />
+ <window width="1435" height="800" x="148" y="74" />
+</preferences>

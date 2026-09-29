@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sat Jul 18 15:40:43 2026
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : kan_core
+Top-level Entity Name : kan_core
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 907
+Total pins : 99
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

@@ -1,0 +1,1683 @@
+xrun(64): 20.09-s001: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s001: Started on Sep 15, 2026 at 10:27:18 EDT
+xrun
+	+xm64bit
+	-sv
+	-f ../sim/flist.f
+		../src/kan_core_pkg.sv
+		../src/layer_0_lut_pkg.sv
+		../src/layer_1_lut_pkg.sv
+		../src/layer_2_lut_pkg.sv
+		../src/gte_comp_sign.sv
+		../src/registers.sv
+		../src/lut_rom.sv
+		../src/single_port_ram.sv
+		../src/saturate_clip.sv
+		../src/kan_core.sv
+		../src/kan_argmax.sv
+		../src/kan_top.sv
+		../tb/tb_kan.sv
+	-timescale 1ns/1ns
+	+ntb_random_seed=automatic
+	+access+rcw
+
+   User defined plus("+") options:
+	+ntb_random_seed=automatic
+
+Recompiling... reason: file '../tb/tb_kan.sv' is newer than expected.
+	expected: Tue Sep 15 10:14:31 2026
+	actual:   Tue Sep 15 10:27:15 2026
+file: ../tb/tb_kan.sv
+	module worklib.tb_kan:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		kan_core_pkg
+		layer_0_lut_pkg
+		layer_1_lut_pkg
+		layer_2_lut_pkg
+		$unit_0x5b7e720a
+		single_port_ram
+		tb_kan
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.tb_kan:sv <0x7fcbad16>
+			streams:  26, words: 41433
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                3746       9
+		Verilog packages:          4       4
+		Registers:             14003    4796
+		Scalar wires:            354       -
+		Expanded wires:          312       2
+		Vectored wires:        16215       -
+		Always blocks:          3629       5
+		Initial blocks:            9       9
+		Parallel blocks:           1       1
+		Cont. assignments:      6587    1024
+		Pseudo assignments:     5070    5052
+		Compilation units:         1       1
+		Simulation timescale:    1ns
+	Writing initial simulation snapshot: worklib.single_port_ram:sv
+Loading snapshot worklib.single_port_ram:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/cadence/XCELIUM2009/tools/xcelium/files/xmsimrc
+xcelium> run
+[TEST 0001] PASS | output=OK | pred=OK
+              ├─ EXP : [-14, -14, 0, 16, -22, -28, -1, -7, -32, -32]
+              ├─ DUT : [-14, -14, 0, 16, -22, -28, -1, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0002] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -9, 10, -32, -8, -26, -32, -32, -32]
+              ├─ DUT : [-32, -32, -9, 10, -32, -8, -26, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0003] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -24, -5, 4, -32, -13, 8, -32, -32, -32]
+              ├─ DUT : [-32, -24, -5, 4, -32, -13, 8, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0004] PASS | output=OK | pred=OK
+              ├─ EXP : [-17, -23, -11, 0, -2, -32, 14, -2, -32, -32]
+              ├─ DUT : [-17, -23, -11, 0, -2, -32, 14, -2, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0005] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -9, 7, 20, -15, -9, -32, -9, -32, -32]
+              ├─ DUT : [12, -9, 7, 20, -15, -9, -32, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0006] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -15, -5, -32, -18, -1, -32, -32, -32]
+              ├─ DUT : [-32, -32, -15, -5, -32, -18, -1, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0007] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -26, 8, 26, -11, -7, -32, -15, -32, -32]
+              ├─ DUT : [1, -26, 8, 26, -11, -7, -32, -15, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0008] PASS | output=OK | pred=OK
+              ├─ EXP : [0, 1, 6, 16, 0, -9, -26, -14, -32, -32]
+              ├─ DUT : [0, 1, 6, 16, 0, -9, -26, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0009] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -8, -1, -1, -3, -9, -2, -32, -32, -5]
+              ├─ DUT : [-32, -8, -1, -1, -3, -9, -2, -32, -32, -5]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0010] PASS | output=OK | pred=OK
+              ├─ EXP : [18, -9, 10, 20, 4, -18, -32, -3, -32, -32]
+              ├─ DUT : [18, -9, 10, 20, 4, -18, -32, -3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0011] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -8, 5, 17, -5, -23, -16, -5, -32, -32]
+              ├─ DUT : [16, -8, 5, 17, -5, -23, -16, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0012] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -11, 14, 25, 7, 0, -32, -13, -32, -32]
+              ├─ DUT : [12, -11, 14, 25, 7, 0, -32, -13, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0013] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -11, 5, 12, -4, -16, -16, -7, -32, -32]
+              ├─ DUT : [1, -11, 5, 12, -4, -16, -16, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0014] PASS | output=OK | pred=OK
+              ├─ EXP : [-25, -21, -15, -12, -12, -29, 14, -32, -32, -32]
+              ├─ DUT : [-25, -21, -15, -12, -12, -29, 14, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0015] PASS | output=OK | pred=OK
+              ├─ EXP : [-20, -10, 5, 6, 8, 7, -20, -22, -32, -18]
+              ├─ DUT : [-20, -10, 5, 6, 8, 7, -20, -22, -32, -18]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0016] PASS | output=OK | pred=OK
+              ├─ EXP : [19, -9, 17, 27, 8, -5, -32, -4, -32, -32]
+              ├─ DUT : [19, -9, 17, 27, 8, -5, -32, -4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0017] PASS | output=OK | pred=OK
+              ├─ EXP : [-14, -31, -2, 17, 6, 2, -32, -8, -32, -32]
+              ├─ DUT : [-14, -31, -2, 17, 6, 2, -32, -8, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0018] PASS | output=OK | pred=OK
+              ├─ EXP : [0, 2, 6, 8, 0, -3, -13, -17, -32, -12]
+              ├─ DUT : [0, 2, 6, 8, 0, -3, -13, -17, -32, -12]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0019] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -14, 3, 17, -26, -17, -17, -12, -32, -32]
+              ├─ DUT : [-5, -14, 3, 17, -26, -17, -17, -12, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0020] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -9, -4, 3, -15, -32, 3, -7, -32, -32]
+              ├─ DUT : [-6, -9, -4, 3, -15, -32, 3, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0021] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -15, -9, -12, -29, -19, -5, -32, -32, -32]
+              ├─ DUT : [-32, -15, -9, -12, -29, -19, -5, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0022] PASS | output=OK | pred=OK
+              ├─ EXP : [-22, -32, -2, 1, -28, -10, -5, -32, -32, 4]
+              ├─ DUT : [-22, -32, -2, 1, -28, -10, -5, -32, -32, 4]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0023] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -15, 11, 28, 6, -15, -32, -8, -32, -32]
+              ├─ DUT : [16, -15, 11, 28, 6, -15, -32, -8, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0024] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -11, 7, 12, -5, -5, -7, -22, -32, -32]
+              ├─ DUT : [3, -11, 7, 12, -5, -5, -7, -22, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0025] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -11, 11, 11, -7, -24, -14, -10, -32, -32]
+              ├─ DUT : [5, -11, 11, 11, -7, -24, -14, -10, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0026] PASS | output=OK | pred=OK
+              ├─ EXP : [-21, -5, 2, -1, -3, -6, -4, -32, -32, -11]
+              ├─ DUT : [-21, -5, 2, -1, -3, -6, -4, -32, -32, -11]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0027] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -18, 10, 23, 2, -2, -32, -22, -32, -32]
+              ├─ DUT : [11, -18, 10, 23, 2, -2, -32, -22, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0028] PASS | output=OK | pred=OK
+              ├─ EXP : [-18, -31, -15, -6, 25, -4, -4, -31, -32, -32]
+              ├─ DUT : [-18, -31, -15, -6, 25, -4, -4, -31, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0029] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 7, 25, -32, -12, -10, -32, -32, -32]
+              ├─ DUT : [-32, -32, 7, 25, -32, -12, -10, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0030] PASS | output=OK | pred=OK
+              ├─ EXP : [-31, -21, 14, 16, -6, -2, 1, -32, -32, -32]
+              ├─ DUT : [-31, -21, 14, 16, -6, -2, 1, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0031] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -21, 0, 0, -20, -10, 0, -32, -32, -32]
+              ├─ DUT : [-32, -21, 0, 0, -20, -10, 0, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0032] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -32, -32, -32, 28, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -32, -32, -32, 28, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0033] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 1, 8, 1, 0, -17, -32, -32, -32]
+              ├─ DUT : [-32, -32, 1, 8, 1, 0, -17, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0034] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -9, 5, 17, -2, -8, -18, -20, -32, -32]
+              ├─ DUT : [12, -9, 5, 17, -2, -8, -18, -20, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0035] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -20, 0, 7, 8, -17, -27, -22, -32, -32]
+              ├─ DUT : [15, -20, 0, 7, 8, -17, -27, -22, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0036] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -7, 3, 4, -5, -6, 0, -22, -32, -9]
+              ├─ DUT : [1, -7, 3, 4, -5, -6, 0, -22, -32, -9]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0037] PASS | output=OK | pred=OK
+              ├─ EXP : [0, -5, 13, 14, 2, -15, -24, 5, -32, -32]
+              ├─ DUT : [0, -5, 13, 14, 2, -15, -24, 5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0038] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -14, -20, 7, -22, 17, -32, -32, -32]
+              ├─ DUT : [-32, -32, -14, -20, 7, -22, 17, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0039] PASS | output=OK | pred=OK
+              ├─ EXP : [11, 10, 9, 19, 9, -14, -27, 3, -32, -32]
+              ├─ DUT : [11, 10, 9, 19, 9, -14, -27, 3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0040] PASS | output=OK | pred=OK
+              ├─ EXP : [-18, -10, 0, 10, 16, -2, 2, -15, -32, -32]
+              ├─ DUT : [-18, -10, 0, 10, 16, -2, 2, -15, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0041] PASS | output=OK | pred=OK
+              ├─ EXP : [-13, -1, 4, 1, 3, -6, 1, -14, -32, -5]
+              ├─ DUT : [-13, -1, 4, 1, 3, -6, 1, -14, -32, -5]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0042] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -14, 15, 20, -9, 0, -32, -12, -32, -32]
+              ├─ DUT : [3, -14, 15, 20, -9, 0, -32, -12, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0043] PASS | output=OK | pred=OK
+              ├─ EXP : [-24, -32, -2, 5, -32, -12, -9, -32, -32, -32]
+              ├─ DUT : [-24, -32, -2, 5, -32, -12, -9, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0044] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -5, 15, 21, -32, 7, -32, -32, -32, -21]
+              ├─ DUT : [-32, -5, 15, 21, -32, 7, -32, -32, -32, -21]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0045] PASS | output=OK | pred=OK
+              ├─ EXP : [-2, -9, 9, 13, -6, -9, -12, -21, -32, -32]
+              ├─ DUT : [-2, -9, 9, 13, -6, -9, -12, -21, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0046] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -21, 9, 13, -14, -8, -9, -32, -32, -32]
+              ├─ DUT : [-6, -21, 9, 13, -14, -8, -9, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0047] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -11, 12, 19, 3, 3, -18, -8, -32, -32]
+              ├─ DUT : [5, -11, 12, 19, 3, 3, -18, -8, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0048] PASS | output=OK | pred=OK
+              ├─ EXP : [-20, -10, 10, 25, -24, -13, -22, -1, -32, -32]
+              ├─ DUT : [-20, -10, 10, 25, -24, -13, -22, -1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0049] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -20, 7, 23, -32, -1, -31, -32, -32, -32]
+              ├─ DUT : [-32, -20, 7, 23, -32, -1, -31, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0050] PASS | output=OK | pred=OK
+              ├─ EXP : [-10, -21, 0, 1, -10, -16, -6, -32, -32, -25]
+              ├─ DUT : [-10, -21, 0, 1, -10, -16, -6, -32, -32, -25]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0051] PASS | output=OK | pred=OK
+              ├─ EXP : [3, 0, 4, 19, 7, -8, -20, -17, -32, -32]
+              ├─ DUT : [3, 0, 4, 19, 7, -8, -20, -17, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0052] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -3, 19, 23, -30, 6, -32, -32, -32, -32]
+              ├─ DUT : [-32, -3, 19, 23, -30, 6, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0053] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -12, -4, 26, -14, 13, -32, -32, -32]
+              ├─ DUT : [-32, -32, -12, -4, 26, -14, 13, -32, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0054] PASS | output=OK | pred=OK
+              ├─ EXP : [-13, -26, -1, 1, 0, -5, -4, -32, -32, -32]
+              ├─ DUT : [-13, -26, -1, 1, 0, -5, -4, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0055] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -29, -32, -31, -9, -12, -32, -32, -29]
+              ├─ DUT : [-32, -32, -29, -32, -31, -9, -12, -32, -32, -29]
+              └─ PRED: EXP=5 DUT=5
+[TEST 0056] PASS | output=OK | pred=OK
+              ├─ EXP : [-4, -9, -3, 8, -17, -10, -8, -28, -32, -32]
+              ├─ DUT : [-4, -9, -3, 8, -17, -10, -8, -28, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0057] PASS | output=OK | pred=OK
+              ├─ EXP : [-23, -5, -6, -1, -2, -24, 20, -27, -32, -30]
+              ├─ DUT : [-23, -5, -6, -1, -2, -24, 20, -27, -32, -30]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0058] PASS | output=OK | pred=OK
+              ├─ EXP : [0, -27, 4, 17, -7, 8, -32, -16, -32, -32]
+              ├─ DUT : [0, -27, 4, 17, -7, 8, -32, -16, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0059] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -25, 2, 18, -32, -13, -12, -23, -32, -32]
+              ├─ DUT : [-8, -25, 2, 18, -32, -13, -12, -23, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0060] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -11, 6, 12, 3, -19, -13, -10, -32, -32]
+              ├─ DUT : [11, -11, 6, 12, 3, -19, -13, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0061] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -7, 5, 16, 3, -12, -19, 3, -32, -32]
+              ├─ DUT : [14, -7, 5, 16, 3, -12, -19, 3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0062] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -7, 14, 13, -21, 3, -32, -32, -32, -27]
+              ├─ DUT : [-32, -7, 14, 13, -21, 3, -32, -32, -32, -27]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0063] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -21, 9, 10, -2, -3, -26, -32, -32, -28]
+              ├─ DUT : [1, -21, 9, 10, -2, -3, -26, -32, -32, -28]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0064] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -20, -19, -3, -25, 2, -32, -32, -32]
+              ├─ DUT : [-32, -32, -20, -19, -3, -25, 2, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0065] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -18, -13, -2, -7, -19, 6, -18, -32, -25]
+              ├─ DUT : [-6, -18, -13, -2, -7, -19, 6, -18, -32, -25]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0066] PASS | output=OK | pred=OK
+              ├─ EXP : [8, 20, 10, 17, -5, -6, -24, -7, -32, -32]
+              ├─ DUT : [8, 20, 10, 17, -5, -6, -24, -7, -32, -32]
+              └─ PRED: EXP=1 DUT=1
+[TEST 0067] PASS | output=OK | pred=OK
+              ├─ EXP : [-3, -5, 5, 6, -15, -13, -21, -32, -32, -16]
+              ├─ DUT : [-3, -5, 5, 6, -15, -13, -21, -32, -32, -16]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0068] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -11, 0, 3, -10, -22, 10, -16, -32, -32]
+              ├─ DUT : [-8, -11, 0, 3, -10, -22, 10, -16, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0069] PASS | output=OK | pred=OK
+              ├─ EXP : [-20, -4, 15, 8, 2, 8, -14, -32, -32, -32]
+              ├─ DUT : [-20, -4, 15, 8, 2, 8, -14, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0070] PASS | output=OK | pred=OK
+              ├─ EXP : [-7, -30, 3, 2, -26, -16, -2, -22, -32, -25]
+              ├─ DUT : [-7, -30, 3, 2, -26, -16, -2, -22, -32, -25]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0071] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, 7, 9, 15, 3, -11, -14, 1, -32, -32]
+              ├─ DUT : [-1, 7, 9, 15, 3, -11, -14, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0072] PASS | output=OK | pred=OK
+              ├─ EXP : [7, -27, 5, 14, 5, -8, -31, -15, -32, -32]
+              ├─ DUT : [7, -27, 5, 14, 5, -8, -31, -15, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0073] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -32, -3, 15, -7, -8, -32, -13, -32, -32]
+              ├─ DUT : [8, -32, -3, 15, -7, -8, -32, -13, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0074] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -2, 5, 11, -7, -17, -16, -12, -32, -32]
+              ├─ DUT : [11, -2, 5, 11, -7, -17, -16, -12, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0075] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -12, 7, 22, 9, -21, -26, -1, -32, -32]
+              ├─ DUT : [16, -12, 7, 22, 9, -21, -26, -1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0076] PASS | output=OK | pred=OK
+              ├─ EXP : [7, 2, 9, 13, -12, -17, -17, -3, -32, -32]
+              ├─ DUT : [7, 2, 9, 13, -12, -17, -17, -3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0077] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -11, 3, -5, -18, -3, -1, -32, -32, -12]
+              ├─ DUT : [5, -11, 3, -5, -18, -3, -1, -32, -32, -12]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0078] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -9, -5, -32, -18, 5, -32, -32, -32]
+              ├─ DUT : [-32, -32, -9, -5, -32, -18, 5, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0079] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -9, 7, 15, 1, -9, -11, -9, -32, -32]
+              ├─ DUT : [-5, -9, 7, 15, 1, -9, -11, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0080] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -8, 8, -32, -14, 3, -32, -32, -32]
+              ├─ DUT : [-32, -32, -8, 8, -32, -14, 3, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0081] PASS | output=OK | pred=OK
+              ├─ EXP : [9, 2, 10, 16, -1, -21, -19, 1, -32, -32]
+              ├─ DUT : [9, 2, 10, 16, -1, -21, -19, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0082] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -26, 16, 20, -17, -12, -30, -9, -32, -32]
+              ├─ DUT : [3, -26, 16, 20, -17, -12, -30, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0083] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -9, 0, -5, 0, -20, 15, -29, -32, -20]
+              ├─ DUT : [-32, -9, 0, -5, 0, -20, 15, -29, -32, -20]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0084] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, 1, 4, 7, -6, -8, -3, -12, -32, -32]
+              ├─ DUT : [-5, 1, 4, 7, -6, -8, -3, -12, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0085] PASS | output=OK | pred=OK
+              ├─ EXP : [10, 10, 8, 21, 0, -15, -18, 7, -32, -32]
+              ├─ DUT : [10, 10, 8, 21, 0, -15, -18, 7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0086] PASS | output=OK | pred=OK
+              ├─ EXP : [18, 9, 12, 24, 9, -14, -32, -2, -32, -32]
+              ├─ DUT : [18, 9, 12, 24, 9, -14, -32, -2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0087] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -11, 8, 23, -7, -13, -32, 0, -32, -32]
+              ├─ DUT : [5, -11, 8, 23, -7, -13, -32, 0, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0088] PASS | output=OK | pred=OK
+              ├─ EXP : [7, -22, 13, 20, -2, -8, -32, -12, -32, -32]
+              ├─ DUT : [7, -22, 13, 20, -2, -8, -32, -12, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0089] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 0, 6, -32, -7, 3, -32, -32, -32]
+              ├─ DUT : [-32, -32, 0, 6, -32, -7, 3, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0090] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -27, 14, 23, -30, 1, -30, -32, -32, -32]
+              ├─ DUT : [-32, -27, 14, 23, -30, 1, -30, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0091] PASS | output=OK | pred=OK
+              ├─ EXP : [-7, -21, 4, 12, -26, -23, -13, -32, -32, -32]
+              ├─ DUT : [-7, -21, 4, 12, -26, -23, -13, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0092] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -20, 20, 18, -15, -4, -2, -32, -32, -32]
+              ├─ DUT : [-32, -20, 20, 18, -15, -4, -2, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0093] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -9, 17, 17, -13, 12, -17, -32, -32, -32]
+              ├─ DUT : [-32, -9, 17, 17, -13, 12, -17, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0094] PASS | output=OK | pred=OK
+              ├─ EXP : [-15, -32, -27, -25, -27, -30, 19, -32, -32, -32]
+              ├─ DUT : [-15, -32, -27, -25, -27, -30, 19, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0095] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -7, 10, 2, -32, 8, -32, -32, -32, -10]
+              ├─ DUT : [-32, -7, 10, 2, -32, 8, -32, -32, -32, -10]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0096] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 8, 21, -32, -2, -29, -32, -32, -32]
+              ├─ DUT : [-32, -32, 8, 21, -32, -2, -29, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0097] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -12, 15, 16, -13, 6, -32, -32, -32, -11]
+              ├─ DUT : [-32, -12, 15, 16, -13, 6, -32, -32, -32, -11]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0098] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -14, 8, 20, 4, -19, -30, -7, -32, -32]
+              ├─ DUT : [16, -14, 8, 20, 4, -19, -30, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0099] PASS | output=OK | pred=OK
+              ├─ EXP : [-19, -28, -10, -11, -32, -17, 3, -32, -32, -32]
+              ├─ DUT : [-19, -28, -10, -11, -32, -17, 3, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0100] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -13, -1, 2, -19, -21, -8, -32, -32, -20]
+              ├─ DUT : [-6, -13, -1, 2, -19, -21, -8, -32, -32, -20]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0101] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -19, -11, -32, -31, 22, -32, -32, -32]
+              ├─ DUT : [-32, -32, -19, -11, -32, -31, 22, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0102] PASS | output=OK | pred=OK
+              ├─ EXP : [0, -27, 2, 18, -17, -5, -32, -5, -32, -32]
+              ├─ DUT : [0, -27, 2, 18, -17, -5, -32, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0103] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -18, 2, 8, -20, -22, -9, -32, -32, -31]
+              ├─ DUT : [-8, -18, 2, 8, -20, -22, -9, -32, -32, -31]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0104] PASS | output=OK | pred=OK
+              ├─ EXP : [-16, -24, 5, 18, -32, -21, -10, -32, -32, -32]
+              ├─ DUT : [-16, -24, 5, 18, -32, -21, -10, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0105] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -24, 2, 15, -22, 0, -32, -32, -32, -32]
+              ├─ DUT : [-32, -24, 2, 15, -22, 0, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0106] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -19, -10, -5, -9, -26, -2, -23, -32, -32]
+              ├─ DUT : [11, -19, -10, -5, -9, -26, -2, -23, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0107] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -3, 4, 9, -19, -13, -18, -1, -32, -32]
+              ├─ DUT : [-1, -3, 4, 9, -19, -13, -18, -1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0108] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -14, 14, 12, -14, 1, -25, -32, -32, -30]
+              ├─ DUT : [-32, -14, 14, 12, -14, 1, -25, -32, -32, -30]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0109] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -32, 0, 2, -2, -7, -10, -32, -32, -29]
+              ├─ DUT : [-6, -32, 0, 2, -2, -7, -10, -32, -32, -29]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0110] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -16, 2, -7, -22, 4, -27, -32, -32, -10]
+              ├─ DUT : [-32, -16, 2, -7, -22, 4, -27, -32, -32, -10]
+              └─ PRED: EXP=5 DUT=5
+[TEST 0111] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -23, 15, 26, 4, -3, -32, -8, -32, -32]
+              ├─ DUT : [12, -23, 15, 26, 4, -3, -32, -8, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0112] PASS | output=OK | pred=OK
+              ├─ EXP : [12, 5, 16, 22, 3, -7, -31, 4, -32, -32]
+              ├─ DUT : [12, 5, 16, 22, 3, -7, -31, 4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0113] PASS | output=OK | pred=OK
+              ├─ EXP : [-27, -32, 6, 8, -32, 1, -27, -32, -32, -32]
+              ├─ DUT : [-27, -32, 6, 8, -32, 1, -27, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0114] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -3, 11, 24, -6, -10, -21, -17, -32, -32]
+              ├─ DUT : [5, -3, 11, 24, -6, -10, -21, -17, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0115] PASS | output=OK | pred=OK
+              ├─ EXP : [-31, -4, 17, 20, -11, 16, -32, -32, -32, -32]
+              ├─ DUT : [-31, -4, 17, 20, -11, 16, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0116] PASS | output=OK | pred=OK
+              ├─ EXP : [4, -5, 14, 16, -11, -10, -19, -11, -32, -32]
+              ├─ DUT : [4, -5, 14, 16, -11, -10, -19, -11, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0117] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -29, 3, 19, -5, -8, -32, -14, -32, -32]
+              ├─ DUT : [11, -29, 3, 19, -5, -8, -32, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0118] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -4, 16, 13, -9, 12, -32, -32, -32, -22]
+              ├─ DUT : [-32, -4, 16, 13, -9, 12, -32, -32, -32, -22]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0119] PASS | output=OK | pred=OK
+              ├─ EXP : [18, 1, 10, 17, 10, -17, -20, 2, -32, -32]
+              ├─ DUT : [18, 1, 10, 17, 10, -17, -20, 2, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0120] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -21, 11, 13, -25, -13, -22, -32, -32, -32]
+              ├─ DUT : [-5, -21, 11, 13, -25, -13, -22, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0121] PASS | output=OK | pred=OK
+              ├─ EXP : [-28, -32, -3, -5, -26, -10, 6, -32, -32, -32]
+              ├─ DUT : [-28, -32, -3, -5, -26, -10, 6, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0122] PASS | output=OK | pred=OK
+              ├─ EXP : [-21, 3, 16, 13, -21, -3, -30, -32, -32, -9]
+              ├─ DUT : [-21, 3, 16, 13, -21, -3, -30, -32, -32, -9]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0123] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -29, 0, 8, -13, -13, -10, -32, -32, -15]
+              ├─ DUT : [8, -29, 0, 8, -13, -13, -10, -32, -32, -15]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0124] PASS | output=OK | pred=OK
+              ├─ EXP : [-26, 0, -5, 9, -17, 11, -32, -26, -32, 13]
+              ├─ DUT : [-26, 0, -5, 9, -17, 11, -32, -26, -32, 13]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0125] PASS | output=OK | pred=OK
+              ├─ EXP : [19, 16, 18, 21, 9, -13, -31, 7, -32, -32]
+              ├─ DUT : [19, 16, 18, 21, 9, -13, -31, 7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0126] PASS | output=OK | pred=OK
+              ├─ EXP : [-18, -32, -20, -11, -25, -32, 31, -29, -32, -32]
+              ├─ DUT : [-18, -32, -20, -11, -25, -32, 31, -29, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0127] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -8, 4, 20, 0, -17, -20, 4, -32, -32]
+              ├─ DUT : [11, -8, 4, 20, 0, -17, -20, 4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0128] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -32, 10, 10, -3, -19, -10, -15, -32, -32]
+              ├─ DUT : [12, -32, 10, 10, -3, -19, -10, -15, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0129] PASS | output=OK | pred=OK
+              ├─ EXP : [-15, -14, -1, 5, -5, 5, -22, -32, -32, -5]
+              ├─ DUT : [-15, -14, -1, 5, -5, 5, -22, -32, -32, -5]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0130] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -2, 19, 21, -29, 15, -32, -32, -32, -25]
+              ├─ DUT : [-32, -2, 19, 21, -29, 15, -32, -32, -32, -25]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0131] PASS | output=OK | pred=OK
+              ├─ EXP : [7, -27, 1, 12, -8, -4, -17, -30, -32, -11]
+              ├─ DUT : [7, -27, 1, 12, -8, -4, -17, -30, -32, -11]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0132] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -32, -9, -4, -25, -32, -10, -28, -32, -29]
+              ├─ DUT : [11, -32, -9, -4, -25, -32, -10, -28, -32, -29]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0133] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -27, 6, 3, -7, -17, -12, -15, -32, -32]
+              ├─ DUT : [15, -27, 6, 3, -7, -17, -12, -15, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0134] PASS | output=OK | pred=OK
+              ├─ EXP : [6, 9, 8, 19, 3, -14, -18, 3, -32, -32]
+              ├─ DUT : [6, 9, 8, 19, 3, -14, -18, 3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0135] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -15, 7, 24, 4, -10, -32, -6, -32, -32]
+              ├─ DUT : [14, -15, 7, 24, 4, -10, -32, -6, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0136] PASS | output=OK | pred=OK
+              ├─ EXP : [-17, -27, -14, -20, -23, -31, 17, -32, -32, -25]
+              ├─ DUT : [-17, -27, -14, -20, -23, -31, 17, -32, -32, -25]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0137] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -28, 5, 19, 6, -9, -32, -19, -32, -32]
+              ├─ DUT : [16, -28, 5, 19, 6, -9, -32, -19, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0138] PASS | output=OK | pred=OK
+              ├─ EXP : [0, -20, 6, 15, 13, 2, -29, -14, -32, -32]
+              ├─ DUT : [0, -20, 6, 15, 13, 2, -29, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0139] PASS | output=OK | pred=OK
+              ├─ EXP : [-16, -23, 8, 8, -12, 4, -15, -32, -32, -32]
+              ├─ DUT : [-16, -23, 8, 8, -12, 4, -15, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0140] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -2, 14, 20, -3, -12, -21, -5, -32, -32]
+              ├─ DUT : [11, -2, 14, 20, -3, -12, -21, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0141] PASS | output=OK | pred=OK
+              ├─ EXP : [-19, -30, -5, 13, -32, -20, 0, -30, -32, -32]
+              ├─ DUT : [-19, -30, -5, 13, -32, -20, 0, -30, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0142] PASS | output=OK | pred=OK
+              ├─ EXP : [-4, -15, -3, 5, -3, -16, 1, -25, -32, -32]
+              ├─ DUT : [-4, -15, -3, 5, -3, -16, 1, -25, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0143] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -28, 4, 28, -32, -24, -10, -32, -32, -32]
+              ├─ DUT : [-32, -28, 4, 28, -32, -24, -10, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0144] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -14, -4, -1, -8, -13, -7, -29, -32, -3]
+              ├─ DUT : [14, -14, -4, -1, -8, -13, -7, -29, -32, -3]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0145] PASS | output=OK | pred=OK
+              ├─ EXP : [10, 4, 10, 23, -3, -17, -24, -2, -32, -32]
+              ├─ DUT : [10, 4, 10, 23, -3, -17, -24, -2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0146] PASS | output=OK | pred=OK
+              ├─ EXP : [-31, -11, 16, 25, -29, 2, -24, -32, -32, -32]
+              ├─ DUT : [-31, -11, 16, 25, -29, 2, -24, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0147] PASS | output=OK | pred=OK
+              ├─ EXP : [-3, -32, -15, -15, -21, -18, 7, -32, -32, -16]
+              ├─ DUT : [-3, -32, -15, -15, -21, -18, 7, -32, -32, -16]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0148] PASS | output=OK | pred=OK
+              ├─ EXP : [-7, -21, 6, 11, -18, -10, -8, -32, -32, -32]
+              ├─ DUT : [-7, -21, 6, 11, -18, -10, -8, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0149] PASS | output=OK | pred=OK
+              ├─ EXP : [-2, -13, -3, -12, -24, -9, 4, -32, -32, 4]
+              ├─ DUT : [-2, -13, -3, -12, -24, -9, 4, -32, -32, 4]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0150] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -10, -6, -32, -15, -5, -32, -32, -32]
+              ├─ DUT : [-32, -32, -10, -6, -32, -15, -5, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0151] PASS | output=OK | pred=OK
+              ├─ EXP : [11, 27, 8, 18, 0, -6, -24, 3, -32, -32]
+              ├─ DUT : [11, 27, 8, 18, 0, -6, -24, 3, -32, -32]
+              └─ PRED: EXP=1 DUT=1
+[TEST 0152] PASS | output=OK | pred=OK
+              ├─ EXP : [12, 0, 11, 22, 7, -8, -27, -6, -32, -32]
+              ├─ DUT : [12, 0, 11, 22, 7, -8, -27, -6, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0153] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -28, -18, -32, -32, 26, -32, -32, -32]
+              ├─ DUT : [-32, -32, -28, -18, -32, -32, 26, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0154] PASS | output=OK | pred=OK
+              ├─ EXP : [-4, -12, -4, 15, -1, -22, -3, -18, -32, -32]
+              ├─ DUT : [-4, -12, -4, 15, -1, -22, -3, -18, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0155] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -3, 11, 20, -2, -6, -22, -19, -32, -32]
+              ├─ DUT : [8, -3, 11, 20, -2, -6, -22, -19, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0156] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -20, 13, 22, 7, -4, -32, -5, -32, -32]
+              ├─ DUT : [15, -20, 13, 22, 7, -4, -32, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0157] PASS | output=OK | pred=OK
+              ├─ EXP : [-26, -16, 0, 25, -32, -28, -9, -32, -32, -32]
+              ├─ DUT : [-26, -16, 0, 25, -32, -28, -9, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0158] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -32, 1, 5, -28, -23, -13, -22, -32, -32]
+              ├─ DUT : [11, -32, 1, 5, -28, -23, -13, -22, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0159] PASS | output=OK | pred=OK
+              ├─ EXP : [-29, -30, 4, 21, -32, -21, -6, -32, -32, -32]
+              ├─ DUT : [-29, -30, 4, 21, -32, -21, -6, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0160] PASS | output=OK | pred=OK
+              ├─ EXP : [-27, -9, 13, 12, -18, 6, -32, -32, -32, -32]
+              ├─ DUT : [-27, -9, 13, 12, -18, 6, -32, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0161] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -32, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -32, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0162] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -31, -24, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -31, -24, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0163] PASS | output=OK | pred=OK
+              ├─ EXP : [20, -4, 11, 25, 8, -16, -32, 5, -32, -32]
+              ├─ DUT : [20, -4, 11, 25, 8, -16, -32, 5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0164] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -26, -10, -10, -8, -17, -9, -32, -32, -23]
+              ├─ DUT : [-32, -26, -10, -10, -8, -17, -9, -32, -32, -23]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0165] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -32, 2, 6, -32, -25, -21, -32, -32, -32]
+              ├─ DUT : [-8, -32, 2, 6, -32, -25, -21, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0166] PASS | output=OK | pred=OK
+              ├─ EXP : [-7, -15, 13, 24, -12, -17, -23, -16, -32, -32]
+              ├─ DUT : [-7, -15, 13, 24, -12, -17, -23, -16, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0167] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -8, -2, -32, -25, 7, -32, -32, -32]
+              ├─ DUT : [-32, -32, -8, -2, -32, -25, 7, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0168] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 3, 16, -32, -8, -32, -32, -32, -32]
+              ├─ DUT : [-32, -32, 3, 16, -32, -8, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0169] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -10, 14, 5, -19, -1, -4, -32, -32, -32]
+              ├─ DUT : [-32, -10, 14, 5, -19, -1, -4, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0170] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -9, 10, -32, -10, 7, -32, -32, -32]
+              ├─ DUT : [-32, -32, -9, 10, -32, -10, 7, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0171] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -24, -29, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -24, -29, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0172] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -7, 6, 20, 5, -14, -23, -10, -32, -32]
+              ├─ DUT : [10, -7, 6, 20, 5, -14, -23, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0173] PASS | output=OK | pred=OK
+              ├─ EXP : [2, -16, -8, 0, 4, -5, -5, -26, -32, 5]
+              ├─ DUT : [2, -16, -8, 0, 4, -5, -5, -26, -32, 5]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0174] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -23, -32, -32, 25, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -23, -32, -32, 25, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0175] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -9, 5, -32, -11, 4, -32, -32, -32]
+              ├─ DUT : [-32, -32, -9, 5, -32, -11, 4, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0176] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -20, 5, 11, -16, -13, -10, -32, -32, -32]
+              ├─ DUT : [-5, -20, 5, 11, -16, -13, -10, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0177] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -19, -4, -17, -2, -4, 1, -32, -32, 1]
+              ├─ DUT : [-32, -19, -4, -17, -2, -4, 1, -32, -32, 1]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0178] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -10, 9, 23, 5, -17, -20, -16, -32, -32]
+              ├─ DUT : [10, -10, 9, 23, 5, -17, -20, -16, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0179] PASS | output=OK | pred=OK
+              ├─ EXP : [-13, -32, -25, -1, -32, -27, -11, -32, -32, -32]
+              ├─ DUT : [-13, -32, -25, -1, -32, -27, -11, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0180] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -21, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -21, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0181] PASS | output=OK | pred=OK
+              ├─ EXP : [6, -13, 9, 17, 3, -17, -24, 3, -32, -32]
+              ├─ DUT : [6, -13, 9, 17, 3, -17, -24, 3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0182] PASS | output=OK | pred=OK
+              ├─ EXP : [15, 3, 9, 20, -2, -19, -25, -3, -32, -32]
+              ├─ DUT : [15, 3, 9, 20, -2, -19, -25, -3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0183] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -18, 3, 0, -2, -12, 4, -32, -32, -20]
+              ├─ DUT : [-32, -18, 3, 0, -2, -12, 4, -32, -32, -20]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0184] PASS | output=OK | pred=OK
+              ├─ EXP : [4, -8, 8, 13, -10, -17, -15, -25, -32, -32]
+              ├─ DUT : [4, -8, 8, 13, -10, -17, -15, -25, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0185] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 2, 20, -32, 0, -32, -32, -32, -32]
+              ├─ DUT : [-32, -32, 2, 20, -32, 0, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0186] PASS | output=OK | pred=OK
+              ├─ EXP : [10, 1, 9, 20, -2, -11, -26, -10, -32, -32]
+              ├─ DUT : [10, 1, 9, 20, -2, -11, -26, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0187] PASS | output=OK | pred=OK
+              ├─ EXP : [13, -4, 12, 19, 6, -16, -32, 6, -32, -32]
+              ├─ DUT : [13, -4, 12, 19, 6, -16, -32, 6, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0188] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -22, -8, 20, -32, -32, -5, -32, -32, -32]
+              ├─ DUT : [-32, -22, -8, 20, -32, -32, -5, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0189] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -4, -7, -6, 3, -18, 15, -32, -32, 2]
+              ├─ DUT : [-8, -4, -7, -6, 3, -18, 15, -32, -32, 2]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0190] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -1, 5, 9, 2, -2, -17, -32, -32, -32]
+              ├─ DUT : [-1, -1, 5, 9, 2, -2, -17, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0191] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -25, -9, -32, -18, 9, -32, -32, -32]
+              ├─ DUT : [-32, -32, -25, -9, -32, -18, 9, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0192] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -13, 11, 12, -23, -4, -32, -32, -32, -5]
+              ├─ DUT : [-32, -13, 11, 12, -23, -4, -32, -32, -32, -5]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0193] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -10, 11, 22, -5, -16, -32, 1, -32, -32]
+              ├─ DUT : [15, -10, 11, 22, -5, -16, -32, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0194] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -5, 14, 24, 0, -12, -26, -2, -32, -32]
+              ├─ DUT : [10, -5, 14, 24, 0, -12, -26, -2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0195] PASS | output=OK | pred=OK
+              ├─ EXP : [-17, -14, 8, 19, -26, -13, 0, -13, -32, -32]
+              ├─ DUT : [-17, -14, 8, 19, -26, -13, 0, -13, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0196] PASS | output=OK | pred=OK
+              ├─ EXP : [-24, 1, 15, 20, -9, 12, -32, -32, -32, -10]
+              ├─ DUT : [-24, 1, 15, 20, -9, 12, -32, -32, -32, -10]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0197] PASS | output=OK | pred=OK
+              ├─ EXP : [-7, -30, -9, -16, 1, -17, 2, -32, -32, -9]
+              ├─ DUT : [-7, -30, -9, -16, 1, -17, 2, -32, -32, -9]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0198] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -11, -3, 0, 11, -13, -2, -32, -32, -15]
+              ├─ DUT : [-32, -11, -3, 0, 11, -13, -2, -32, -32, -15]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0199] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -12, 12, 18, -23, -11, -19, -32, -32, -32]
+              ├─ DUT : [-5, -12, 12, 18, -23, -11, -19, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0200] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -23, 0, -2, -14, -17, -6, -26, -32, -32]
+              ├─ DUT : [8, -23, 0, -2, -14, -17, -6, -26, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0201] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 6, 22, -32, -12, -27, -32, -32, -32]
+              ├─ DUT : [-32, -32, 6, 22, -32, -12, -27, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0202] PASS | output=OK | pred=OK
+              ├─ EXP : [3, 4, 6, 18, -3, -9, -17, -11, -32, -32]
+              ├─ DUT : [3, 4, 6, 18, -3, -9, -17, -11, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0203] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -5, 1, 8, -5, -11, -3, -32, -32, -10]
+              ├─ DUT : [-5, -5, 1, 8, -5, -11, -3, -32, -32, -10]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0204] PASS | output=OK | pred=OK
+              ├─ EXP : [2, -3, 6, 16, -16, -21, -20, -32, -32, -32]
+              ├─ DUT : [2, -3, 6, 16, -16, -21, -20, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0205] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -13, -10, -32, -27, 17, -27, -32, -32]
+              ├─ DUT : [-32, -32, -13, -10, -32, -27, 17, -27, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0206] PASS | output=OK | pred=OK
+              ├─ EXP : [-4, 2, 8, 14, -4, -17, -1, -1, -32, -32]
+              ├─ DUT : [-4, 2, 8, 14, -4, -17, -1, -1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0207] PASS | output=OK | pred=OK
+              ├─ EXP : [-19, -19, 2, 4, -9, -13, 3, -32, -32, -32]
+              ├─ DUT : [-19, -19, 2, 4, -9, -13, 3, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0208] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -3, 10, 14, -4, -13, -11, 2, -32, -32]
+              ├─ DUT : [3, -3, 10, 14, -4, -13, -11, 2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0209] PASS | output=OK | pred=OK
+              ├─ EXP : [12, 6, 12, 12, -3, -9, -22, 4, -32, -32]
+              ├─ DUT : [12, 6, 12, 12, -3, -9, -22, 4, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0210] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -6, 17, 22, 2, -7, -32, 1, -32, -32]
+              ├─ DUT : [14, -6, 17, 22, 2, -7, -32, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0211] PASS | output=OK | pred=OK
+              ├─ EXP : [6, -14, 6, 8, -6, -12, -17, -5, -32, -32]
+              ├─ DUT : [6, -14, 6, 8, -6, -12, -17, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0212] PASS | output=OK | pred=OK
+              ├─ EXP : [-26, -32, -29, -32, -22, -11, -1, -32, -32, -32]
+              ├─ DUT : [-26, -32, -29, -32, -22, -11, -1, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0213] PASS | output=OK | pred=OK
+              ├─ EXP : [12, 0, 6, 13, -13, -18, -17, -6, -32, -32]
+              ├─ DUT : [12, 0, 6, 13, -13, -18, -17, -6, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0214] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, 9, 4, 12, 1, -9, -3, 0, -32, -32]
+              ├─ DUT : [-5, 9, 4, 12, 1, -9, -3, 0, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0215] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -24, -3, 5, -32, -8, -22, -32, -32, -32]
+              ├─ DUT : [-32, -24, -3, 5, -32, -8, -22, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0216] PASS | output=OK | pred=OK
+              ├─ EXP : [2, -12, 9, 13, -9, -10, -27, -29, -32, -27]
+              ├─ DUT : [2, -12, 9, 13, -9, -10, -27, -29, -32, -27]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0217] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -15, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -15, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0218] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -11, 15, 26, 6, -11, -31, -14, -32, -32]
+              ├─ DUT : [15, -11, 15, 26, 6, -11, -31, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0219] PASS | output=OK | pred=OK
+              ├─ EXP : [9, 3, 8, 19, -2, -18, -31, 7, -32, -32]
+              ├─ DUT : [9, 3, 8, 19, -2, -18, -31, 7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0220] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -32, 4, 17, -9, -11, -32, -10, -32, -32]
+              ├─ DUT : [9, -32, 4, 17, -9, -11, -32, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0221] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -30, -32, -32, 30, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -30, -32, -32, 30, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0222] PASS | output=OK | pred=OK
+              ├─ EXP : [0, -19, -1, -2, -13, -10, -1, -26, -32, -32]
+              ├─ DUT : [0, -19, -1, -2, -13, -10, -1, -26, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0223] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -18, 11, 21, 2, -14, -31, -18, -32, -32]
+              ├─ DUT : [16, -18, 11, 21, 2, -14, -31, -18, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0224] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -9, 8, 16, -1, -12, -26, -5, -32, -32]
+              ├─ DUT : [14, -9, 8, 16, -1, -12, -26, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0225] PASS | output=OK | pred=OK
+              ├─ EXP : [-25, -32, 3, 15, -32, -16, -5, -32, -32, -32]
+              ├─ DUT : [-25, -32, 3, 15, -32, -16, -5, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0226] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -12, 15, 25, 2, -15, -32, -5, -32, -32]
+              ├─ DUT : [10, -12, 15, 25, 2, -15, -32, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0227] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -32, 2, 21, 2, -19, -24, -20, -32, -32]
+              ├─ DUT : [5, -32, 2, 21, 2, -19, -24, -20, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0228] PASS | output=OK | pred=OK
+              ├─ EXP : [6, 12, 13, 13, 8, -9, -20, -3, -32, -32]
+              ├─ DUT : [6, 12, 13, 13, 8, -9, -20, -3, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0229] PASS | output=OK | pred=OK
+              ├─ EXP : [8, 3, 13, 21, 4, -7, -32, -4, -32, -32]
+              ├─ DUT : [8, 3, 13, 21, 4, -7, -32, -4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0230] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -8, -13, -7, -27, -32, 11, -32, -32, -32]
+              ├─ DUT : [-32, -8, -13, -7, -27, -32, 11, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0231] PASS | output=OK | pred=OK
+              ├─ EXP : [-26, -26, -3, -10, -17, -4, -1, -32, -32, 9]
+              ├─ DUT : [-26, -26, -3, -10, -17, -4, -1, -32, -32, 9]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0232] PASS | output=OK | pred=OK
+              ├─ EXP : [6, -26, 12, 16, -9, -13, -21, -12, -32, -32]
+              ├─ DUT : [6, -26, 12, 16, -9, -13, -21, -12, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0233] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -28, -26, -32, -1, -6, -15, -32, -32, -32]
+              ├─ DUT : [-32, -28, -26, -32, -1, -6, -15, -32, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0234] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -25, -15, -32, -32, 14, -32, -32, -32]
+              ├─ DUT : [-32, -32, -25, -15, -32, -32, 14, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0235] PASS | output=OK | pred=OK
+              ├─ EXP : [13, -6, 8, 18, -6, -8, -30, -4, -32, -32]
+              ├─ DUT : [13, -6, 8, 18, -6, -8, -30, -4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0236] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -7, 8, 12, -9, -12, -14, -22, -32, -32]
+              ├─ DUT : [1, -7, 8, 12, -9, -12, -14, -22, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0237] PASS | output=OK | pred=OK
+              ├─ EXP : [-27, 19, -9, 6, -5, -25, -3, -11, -32, -32]
+              ├─ DUT : [-27, 19, -9, 6, -5, -25, -3, -11, -32, -32]
+              └─ PRED: EXP=1 DUT=1
+[TEST 0238] PASS | output=OK | pred=OK
+              ├─ EXP : [-24, -19, 7, 9, 3, 11, -23, -32, -32, -32]
+              ├─ DUT : [-24, -19, 7, 9, 3, 11, -23, -32, -32, -32]
+              └─ PRED: EXP=5 DUT=5
+[TEST 0239] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -17, 1, -4, -17, 0, -16, -32, -32, 5]
+              ├─ DUT : [-8, -17, 1, -4, -17, 0, -16, -32, -32, 5]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0240] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -14, 8, 17, -14, -10, -21, -9, -32, -32]
+              ├─ DUT : [5, -14, 8, 17, -14, -10, -21, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0241] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -5, 5, 10, -9, -7, -11, -7, -32, -32]
+              ├─ DUT : [1, -5, 5, 10, -9, -7, -11, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0242] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -16, -2, 8, -5, -13, -13, -21, -32, -3]
+              ├─ DUT : [-5, -16, -2, 8, -5, -13, -13, -21, -32, -3]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0243] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -14, 4, 12, 4, 9, -21, -19, -32, -32]
+              ├─ DUT : [-6, -14, 4, 12, 4, 9, -21, -19, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0244] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -8, 3, 12, -11, -7, -29, 0, -32, -32]
+              ├─ DUT : [16, -8, 3, 12, -11, -7, -29, 0, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0245] PASS | output=OK | pred=OK
+              ├─ EXP : [-16, -20, 2, -2, -9, -7, 5, -32, -32, -16]
+              ├─ DUT : [-16, -20, 2, -2, -9, -7, 5, -32, -32, -16]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0246] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -24, 0, 12, -5, -22, -16, -23, -32, -32]
+              ├─ DUT : [12, -24, 0, 12, -5, -22, -16, -23, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0247] PASS | output=OK | pred=OK
+              ├─ EXP : [7, 5, 6, 17, -10, -10, -17, -12, -32, -32]
+              ├─ DUT : [7, 5, 6, 17, -10, -10, -17, -12, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0248] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 7, 20, -32, -7, -11, -32, -32, -32]
+              ├─ DUT : [-32, -32, 7, 20, -32, -7, -11, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0249] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -29, 6, 26, -32, -8, -9, -32, -32, -32]
+              ├─ DUT : [-32, -29, 6, 26, -32, -8, -9, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0250] PASS | output=OK | pred=OK
+              ├─ EXP : [-15, -5, -6, 3, -10, -13, 0, -20, -32, -32]
+              ├─ DUT : [-15, -5, -6, 3, -10, -13, 0, -20, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0251] PASS | output=OK | pred=OK
+              ├─ EXP : [-29, -22, 18, 18, -13, -3, -13, -32, -32, -32]
+              ├─ DUT : [-29, -22, 18, 18, -13, -3, -13, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0252] PASS | output=OK | pred=OK
+              ├─ EXP : [2, -32, 10, 14, -22, -13, -32, -9, -32, -32]
+              ├─ DUT : [2, -32, 10, 14, -22, -13, -32, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0253] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, 2, 16, 9, -19, 7, -29, -32, -32, -16]
+              ├─ DUT : [-32, 2, 16, 9, -19, 7, -29, -32, -32, -16]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0254] PASS | output=OK | pred=OK
+              ├─ EXP : [-20, -13, -10, -10, -11, -11, -11, -32, -32, -3]
+              ├─ DUT : [-20, -13, -10, -10, -11, -11, -11, -32, -32, -3]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0255] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -19, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -19, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0256] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -4, 11, 20, -5, -12, -23, -24, -32, -32]
+              ├─ DUT : [9, -4, 11, 20, -5, -12, -23, -24, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0257] PASS | output=OK | pred=OK
+              ├─ EXP : [-23, -8, -7, 3, -18, -5, -26, -32, -32, 0]
+              ├─ DUT : [-23, -8, -7, 3, -18, -5, -26, -32, -32, 0]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0258] PASS | output=OK | pred=OK
+              ├─ EXP : [-12, 1, -3, 11, -9, -20, -1, -15, -32, -32]
+              ├─ DUT : [-12, 1, -3, 11, -9, -20, -1, -15, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0259] PASS | output=OK | pred=OK
+              ├─ EXP : [13, 8, 6, 16, -8, -12, -22, -8, -32, -32]
+              ├─ DUT : [13, 8, 6, 16, -8, -12, -22, -8, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0260] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -16, 1, 12, -21, -18, -17, -16, -32, -32]
+              ├─ DUT : [15, -16, 1, 12, -21, -18, -17, -16, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0261] PASS | output=OK | pred=OK
+              ├─ EXP : [-11, -20, -5, 7, 11, -9, -2, -32, -32, -30]
+              ├─ DUT : [-11, -20, -5, 7, 11, -9, -2, -32, -32, -30]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0262] PASS | output=OK | pred=OK
+              ├─ EXP : [-23, -16, 0, 3, -6, -11, 5, -14, -32, -32]
+              ├─ DUT : [-23, -16, 0, 3, -6, -11, 5, -14, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0263] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -18, -8, -9, -5, -18, 12, -32, -32, 4]
+              ├─ DUT : [-8, -18, -8, -9, -5, -18, 12, -32, -32, 4]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0264] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -31, -20, -3, -32, -28, 15, -28, -32, -32]
+              ├─ DUT : [-32, -31, -20, -3, -32, -28, 15, -28, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0265] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -12, -1, 17, -4, -16, -6, -9, -32, -32]
+              ├─ DUT : [8, -12, -1, 17, -4, -16, -6, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0266] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -5, 2, 12, -5, -15, -15, -15, -32, -23]
+              ├─ DUT : [9, -5, 2, 12, -5, -15, -15, -15, -32, -23]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0267] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, 1, 10, 9, 0, -4, -13, -21, -32, -24]
+              ├─ DUT : [-5, 1, 10, 9, 0, -4, -13, -21, -32, -24]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0268] PASS | output=OK | pred=OK
+              ├─ EXP : [3, 0, 14, 24, 0, -16, -25, 1, -32, -32]
+              ├─ DUT : [3, 0, 14, 24, 0, -16, -25, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0269] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -32, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -32, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0270] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -18, 1, 14, -2, -4, -32, -10, -32, -32]
+              ├─ DUT : [1, -18, 1, 14, -2, -4, -32, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0271] PASS | output=OK | pred=OK
+              ├─ EXP : [-22, -32, -28, -17, -32, -30, 11, -32, -32, -32]
+              ├─ DUT : [-22, -32, -28, -17, -32, -30, 11, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0272] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -7, 15, 12, -11, -15, -31, 4, -32, -32]
+              ├─ DUT : [-1, -7, 15, 12, -11, -15, -31, 4, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0273] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -18, -7, -3, 4, -17, 29, -28, -32, -32]
+              ├─ DUT : [-32, -18, -7, -3, 4, -17, 29, -28, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0274] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -20, 15, 19, -17, -9, -24, -32, -32, -32]
+              ├─ DUT : [1, -20, 15, 19, -17, -9, -24, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0275] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -2, 6, 24, -8, -9, -20, -19, -32, -32]
+              ├─ DUT : [10, -2, 6, 24, -8, -9, -20, -19, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0276] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -21, 10, 23, 10, -14, -32, 1, -32, -32]
+              ├─ DUT : [5, -21, 10, 23, 10, -14, -32, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0277] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -1, 20, 25, 4, -8, -32, -1, -32, -32]
+              ├─ DUT : [16, -1, 20, 25, 4, -8, -32, -1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0278] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -31, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -31, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0279] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -28, 14, 20, -8, -5, -32, -16, -32, -32]
+              ├─ DUT : [3, -28, 14, 20, -8, -5, -32, -16, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0280] PASS | output=OK | pred=OK
+              ├─ EXP : [-7, 13, 11, 12, -5, -6, -27, 1, -32, -32]
+              ├─ DUT : [-7, 13, 11, 12, -5, -6, -27, 1, -32, -32]
+              └─ PRED: EXP=1 DUT=1
+[TEST 0281] PASS | output=OK | pred=OK
+              ├─ EXP : [-21, 0, 3, 3, -10, -16, -16, -11, -32, -32]
+              ├─ DUT : [-21, 0, 3, 3, -10, -16, -16, -11, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0282] PASS | output=OK | pred=OK
+              ├─ EXP : [17, 7, 14, 24, -4, -9, -32, 0, -32, -32]
+              ├─ DUT : [17, 7, 14, 24, -4, -9, -32, 0, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0283] PASS | output=OK | pred=OK
+              ├─ EXP : [-12, -32, -15, -7, -25, -32, 18, -32, -32, -32]
+              ├─ DUT : [-12, -32, -15, -7, -25, -32, 18, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0284] PASS | output=OK | pred=OK
+              ├─ EXP : [7, -26, 11, 20, 8, 1, -24, -25, -32, -32]
+              ├─ DUT : [7, -26, 11, 20, 8, 1, -24, -25, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0285] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -3, 8, 22, -3, -16, -30, -14, -32, -32]
+              ├─ DUT : [10, -3, 8, 22, -3, -16, -30, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0286] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -5, 5, 14, -12, -8, -8, -23, -32, -32]
+              ├─ DUT : [1, -5, 5, 14, -12, -8, -8, -23, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0287] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -5, 19, 22, -3, -9, -25, -10, -32, -32]
+              ├─ DUT : [8, -5, 19, 22, -3, -9, -25, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0288] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -26, 3, 12, -5, -3, -18, -5, -32, -32]
+              ├─ DUT : [-1, -26, 3, 12, -5, -3, -18, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0289] PASS | output=OK | pred=OK
+              ├─ EXP : [20, -6, 12, 20, 4, -15, -32, 3, -32, -32]
+              ├─ DUT : [20, -6, 12, 20, 4, -15, -32, 3, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0290] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -17, -9, -16, -13, -21, 22, -32, -32, -24]
+              ├─ DUT : [-32, -17, -9, -16, -13, -21, 22, -32, -32, -24]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0291] PASS | output=OK | pred=OK
+              ├─ EXP : [-29, -17, -3, -8, -24, -14, -3, -11, -32, -28]
+              ├─ DUT : [-29, -17, -3, -8, -24, -14, -3, -11, -32, -28]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0292] PASS | output=OK | pred=OK
+              ├─ EXP : [-16, -3, -8, -4, 1, -22, 20, -23, -32, -32]
+              ├─ DUT : [-16, -3, -8, -4, 1, -22, 20, -23, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0293] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -18, 7, 14, -18, -7, -32, -9, -32, -32]
+              ├─ DUT : [9, -18, 7, 14, -18, -7, -32, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0294] PASS | output=OK | pred=OK
+              ├─ EXP : [-23, -32, -10, -6, -11, -27, 10, -32, -32, -32]
+              ├─ DUT : [-23, -32, -10, -6, -11, -27, 10, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0295] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -19, 9, 3, -21, 0, 6, -32, -32, -32]
+              ├─ DUT : [-32, -19, 9, 3, -21, 0, 6, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0296] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -12, 5, 14, 1, -13, -14, -5, -32, -32]
+              ├─ DUT : [3, -12, 5, 14, 1, -13, -14, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0297] PASS | output=OK | pred=OK
+              ├─ EXP : [-19, -32, -25, -32, -31, -11, -14, -32, -32, -32]
+              ├─ DUT : [-19, -32, -25, -32, -31, -11, -14, -32, -32, -32]
+              └─ PRED: EXP=5 DUT=5
+[TEST 0298] PASS | output=OK | pred=OK
+              ├─ EXP : [-16, -13, -10, 1, -14, -10, -16, -23, -32, 28]
+              ├─ DUT : [-16, -13, -10, 1, -14, -10, -16, -23, -32, 28]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0299] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -5, 1, -22, -15, -8, -32, -32, -32]
+              ├─ DUT : [-32, -32, -5, 1, -22, -15, -8, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0300] PASS | output=OK | pred=OK
+              ├─ EXP : [-24, -32, -13, -13, -19, -8, -15, -32, -32, -32]
+              ├─ DUT : [-24, -32, -13, -13, -19, -8, -15, -32, -32, -32]
+              └─ PRED: EXP=5 DUT=5
+[TEST 0301] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -23, -13, -32, -27, 25, -32, -32, -32]
+              ├─ DUT : [-32, -32, -23, -13, -32, -27, 25, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0302] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -2, 2, 7, 0, -3, -8, -32, -32, 2]
+              ├─ DUT : [-32, -2, 2, 7, 0, -3, -8, -32, -32, 2]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0303] PASS | output=OK | pred=OK
+              ├─ EXP : [-17, 4, 5, 5, 1, -1, -4, -10, -32, -22]
+              ├─ DUT : [-17, 4, 5, 5, 1, -1, -4, -10, -32, -22]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0304] PASS | output=OK | pred=OK
+              ├─ EXP : [-23, -19, -12, -10, -8, -28, 19, -32, -32, -32]
+              ├─ DUT : [-23, -19, -12, -10, -8, -28, 19, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0305] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -30, -19, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -30, -19, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0306] PASS | output=OK | pred=OK
+              ├─ EXP : [-15, -6, -1, -1, -9, -13, 15, -25, -32, -13]
+              ├─ DUT : [-15, -6, -1, -1, -9, -13, 15, -25, -32, -13]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0307] PASS | output=OK | pred=OK
+              ├─ EXP : [-14, -13, 8, 5, -9, -9, 3, -32, -32, -10]
+              ├─ DUT : [-14, -13, 8, 5, -9, -9, 3, -32, -32, -10]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0308] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -23, 0, 21, -11, -7, -32, -10, -32, -32]
+              ├─ DUT : [3, -23, 0, 21, -11, -7, -32, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0309] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -29, 16, 29, -29, -3, -17, -32, -32, -32]
+              ├─ DUT : [-32, -29, 16, 29, -29, -3, -17, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0310] PASS | output=OK | pred=OK
+              ├─ EXP : [-28, -11, 4, 2, -12, -8, -12, -32, -32, -25]
+              ├─ DUT : [-28, -11, 4, 2, -12, -8, -12, -32, -32, -25]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0311] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -27, -7, -8, -1, -7, -3, -32, -32, -24]
+              ├─ DUT : [-5, -27, -7, -8, -1, -7, -3, -32, -32, -24]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0312] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -9, 13, 23, 5, -15, -31, -9, -32, -32]
+              ├─ DUT : [16, -9, 13, 23, 5, -15, -31, -9, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0313] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 3, 17, -32, -11, -8, -32, -32, -32]
+              ├─ DUT : [-32, -32, 3, 17, -32, -11, -8, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0314] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, 3, 13, 8, -18, 3, -17, -32, -32, -1]
+              ├─ DUT : [-32, 3, 13, 8, -18, 3, -17, -32, -32, -1]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0315] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -32, -11, -6, -8, -13, -5, -13, -32, -17]
+              ├─ DUT : [-1, -32, -11, -6, -8, -13, -5, -13, -32, -17]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0316] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -4, 13, 21, -28, 11, -32, -32, -32, -32]
+              ├─ DUT : [-32, -4, 13, 21, -28, 11, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0317] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -32, 16, -10, 12, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -32, 16, -10, 12, -32, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0318] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -8, 14, 20, 3, -18, -28, 1, -32, -32]
+              ├─ DUT : [15, -8, 14, 20, 3, -18, -28, 1, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0319] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -3, -1, -32, -13, -8, -32, -32, -32]
+              ├─ DUT : [-32, -32, -3, -1, -32, -13, -8, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0320] PASS | output=OK | pred=OK
+              ├─ EXP : [15, -11, 10, 23, 7, -19, -32, 5, -32, -32]
+              ├─ DUT : [15, -11, 10, 23, 7, -19, -32, 5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0321] PASS | output=OK | pred=OK
+              ├─ EXP : [10, -24, 7, 14, 1, -16, -19, -18, -32, -32]
+              ├─ DUT : [10, -24, 7, 14, 1, -16, -19, -18, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0322] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -32, -5, -8, -30, -18, -7, -32, -32, 2]
+              ├─ DUT : [-8, -32, -5, -8, -30, -18, -7, -32, -32, 2]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0323] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -7, 12, 18, -5, -9, -21, -10, -32, -32]
+              ├─ DUT : [8, -7, 12, 18, -5, -9, -21, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0324] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -4, 10, 18, -29, 3, -32, -32, -32, -32]
+              ├─ DUT : [-32, -4, 10, 18, -29, 3, -32, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0325] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -9, 3, 19, -7, -18, -26, -3, -32, -32]
+              ├─ DUT : [1, -9, 3, 19, -7, -18, -26, -3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0326] PASS | output=OK | pred=OK
+              ├─ EXP : [8, -15, 9, 16, -5, -10, -24, -22, -32, -32]
+              ├─ DUT : [8, -15, 9, 16, -5, -10, -24, -22, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0327] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, 10, 13, 11, -2, 0, -22, -32, -32, -31]
+              ├─ DUT : [-6, 10, 13, 11, -2, 0, -22, -32, -32, -31]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0328] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -9, 9, 17, -2, -19, -9, -2, -32, -32]
+              ├─ DUT : [9, -9, 9, 17, -2, -19, -9, -2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0329] PASS | output=OK | pred=OK
+              ├─ EXP : [-4, -32, 5, 10, -32, -13, -28, -19, -32, -32]
+              ├─ DUT : [-4, -32, 5, 10, -32, -13, -28, -19, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0330] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -7, 7, 12, 1, -20, -7, -5, -32, -32]
+              ├─ DUT : [9, -7, 7, 12, 1, -20, -7, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0331] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -27, 9, 13, -18, -5, -32, -7, -32, -32]
+              ├─ DUT : [5, -27, 9, 13, -18, -5, -32, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0332] PASS | output=OK | pred=OK
+              ├─ EXP : [5, -26, 2, 19, -7, -5, -31, -4, -32, -32]
+              ├─ DUT : [5, -26, 2, 19, -7, -5, -31, -4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0333] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -20, 12, 22, 14, -1, -21, -6, -32, -32]
+              ├─ DUT : [-6, -20, 12, 22, 14, -1, -21, -6, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0334] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -13, 1, 22, 3, -1, -24, -13, -32, -32]
+              ├─ DUT : [-6, -13, 1, 22, 3, -1, -24, -13, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0335] PASS | output=OK | pred=OK
+              ├─ EXP : [-29, 3, 14, 8, -9, 0, -9, -32, -32, -32]
+              ├─ DUT : [-29, 3, 14, 8, -9, 0, -9, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0336] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -12, 9, 15, -12, -10, -27, -32, -32, -32]
+              ├─ DUT : [1, -12, 9, 15, -12, -10, -27, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0337] PASS | output=OK | pred=OK
+              ├─ EXP : [18, -32, -4, 2, -5, -16, -17, -32, -32, -32]
+              ├─ DUT : [18, -32, -4, 2, -5, -16, -17, -32, -32, -32]
+              └─ PRED: EXP=0 DUT=0
+[TEST 0338] PASS | output=OK | pred=OK
+              ├─ EXP : [-6, -17, 19, 30, -21, -16, -27, 0, -32, -32]
+              ├─ DUT : [-6, -17, 19, 30, -21, -16, -27, 0, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0339] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -5, 11, 17, -3, -4, -28, -6, -32, -32]
+              ├─ DUT : [9, -5, 11, 17, -3, -4, -28, -6, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0340] PASS | output=OK | pred=OK
+              ├─ EXP : [-5, -23, -16, -3, 18, -17, 6, -20, -32, -32]
+              ├─ DUT : [-5, -23, -16, -3, 18, -17, 6, -20, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0341] PASS | output=OK | pred=OK
+              ├─ EXP : [-26, -32, 5, 3, -8, -5, 1, -32, -32, -32]
+              ├─ DUT : [-26, -32, 5, 3, -8, -5, 1, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0342] PASS | output=OK | pred=OK
+              ├─ EXP : [4, -4, 6, 14, -13, -8, -19, -18, -32, -32]
+              ├─ DUT : [4, -4, 6, 14, -13, -8, -19, -18, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0343] PASS | output=OK | pred=OK
+              ├─ EXP : [-19, -32, 1, 20, -32, -11, -28, -32, -32, -32]
+              ├─ DUT : [-19, -32, 1, 20, -32, -11, -28, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0344] PASS | output=OK | pred=OK
+              ├─ EXP : [16, -19, 12, 25, 11, -16, -32, -7, -32, -32]
+              ├─ DUT : [16, -19, 12, 25, 11, -16, -32, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0345] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -24, 7, 16, -7, -10, -31, -10, -32, -32]
+              ├─ DUT : [11, -24, 7, 16, -7, -10, -31, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0346] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -15, 11, 4, -18, -11, 1, -32, -32, -26]
+              ├─ DUT : [-32, -15, 11, 4, -18, -11, 1, -32, -32, -26]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0347] PASS | output=OK | pred=OK
+              ├─ EXP : [-13, -32, 1, 9, -21, -8, -30, -32, -32, 3]
+              ├─ DUT : [-13, -32, 1, 9, -21, -8, -30, -32, -32, 3]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0348] PASS | output=OK | pred=OK
+              ├─ EXP : [-22, -1, 4, 11, -11, -16, 1, -32, -32, -32]
+              ├─ DUT : [-22, -1, 4, 11, -11, -16, 1, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0349] PASS | output=OK | pred=OK
+              ├─ EXP : [-10, -2, -2, 9, -7, -13, -4, -11, -32, -32]
+              ├─ DUT : [-10, -2, -2, 9, -7, -13, -4, -11, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0350] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -9, 1, -9, -5, -17, 1, -32, -32, -28]
+              ├─ DUT : [-8, -9, 1, -9, -5, -17, 1, -32, -32, -28]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0351] PASS | output=OK | pred=OK
+              ├─ EXP : [-2, -17, 0, 8, 0, -11, -14, -16, -32, -21]
+              ├─ DUT : [-2, -17, 0, 8, 0, -11, -14, -16, -32, -21]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0352] PASS | output=OK | pred=OK
+              ├─ EXP : [-16, -18, 16, 25, -23, -9, -31, -32, -32, -32]
+              ├─ DUT : [-16, -18, 16, 25, -23, -9, -31, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0353] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -28, -21, -22, -32, 27, -32, -32, -32]
+              ├─ DUT : [-32, -32, -28, -21, -22, -32, 27, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0354] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -10, 4, 16, -2, -9, -16, -30, -32, -32]
+              ├─ DUT : [-1, -10, 4, 16, -2, -9, -16, -30, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0355] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -25, -17, -32, -22, -4, -32, -32, -32]
+              ├─ DUT : [-32, -32, -25, -17, -32, -22, -4, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0356] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -27, -6, -11, -32, -8, -5, -32, -32, -17]
+              ├─ DUT : [-32, -27, -6, -11, -32, -8, -5, -32, -32, -17]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0357] PASS | output=OK | pred=OK
+              ├─ EXP : [-4, 10, 2, 3, -6, -1, -13, -32, -32, 0]
+              ├─ DUT : [-4, 10, 2, 3, -6, -1, -13, -32, -32, 0]
+              └─ PRED: EXP=1 DUT=1
+[TEST 0358] PASS | output=OK | pred=OK
+              ├─ EXP : [13, -10, 10, 21, 7, -18, -26, 0, -32, -32]
+              ├─ DUT : [13, -10, 10, 21, 7, -18, -26, 0, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0359] PASS | output=OK | pred=OK
+              ├─ EXP : [-10, -32, -23, -28, -32, -32, 1, -32, -32, -32]
+              ├─ DUT : [-10, -32, -23, -28, -32, -32, 1, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0360] PASS | output=OK | pred=OK
+              ├─ EXP : [11, -5, 7, 21, 3, -11, -22, -2, -32, -32]
+              ├─ DUT : [11, -5, 7, 21, 3, -11, -22, -2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0361] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -8, 8, -32, -24, 3, -32, -32, -32]
+              ├─ DUT : [-32, -32, -8, 8, -32, -24, 3, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0362] PASS | output=OK | pred=OK
+              ├─ EXP : [17, -13, 12, 22, 8, -17, -28, 0, -32, -32]
+              ├─ DUT : [17, -13, 12, 22, 8, -17, -28, 0, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0363] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -1, -1, 5, -6, 0, -32, -32, -32]
+              ├─ DUT : [-32, -32, -1, -1, 5, -6, 0, -32, -32, -32]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0364] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -4, 15, 19, -2, 6, -13, -32, -32, -32]
+              ├─ DUT : [-32, -4, 15, 19, -2, 6, -13, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0365] PASS | output=OK | pred=OK
+              ├─ EXP : [-26, -17, 13, 18, -26, 4, -32, -19, -32, -32]
+              ├─ DUT : [-26, -17, 13, 18, -26, 4, -32, -19, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0366] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -4, 5, 19, -4, -22, -24, -8, -32, -32]
+              ├─ DUT : [12, -4, 5, 19, -4, -22, -24, -8, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0367] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, 1, 20, -32, -1, -12, -32, -32, -32]
+              ├─ DUT : [-32, -32, 1, 20, -32, -1, -12, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0368] PASS | output=OK | pred=OK
+              ├─ EXP : [-8, -32, -8, -7, -28, -5, -21, -32, -32, -5]
+              ├─ DUT : [-8, -32, -8, -7, -28, -5, -21, -32, -32, -5]
+              └─ PRED: EXP=5 DUT=5
+[TEST 0369] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -9, 16, 22, 2, -13, -22, -2, -32, -32]
+              ├─ DUT : [12, -9, 16, 22, 2, -13, -22, -2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0370] PASS | output=OK | pred=OK
+              ├─ EXP : [13, -4, 9, 22, 1, -10, -20, -14, -32, -32]
+              ├─ DUT : [13, -4, 9, 22, 1, -10, -20, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0371] PASS | output=OK | pred=OK
+              ├─ EXP : [1, 5, 7, 13, -2, -5, -12, 2, -32, -32]
+              ├─ DUT : [1, 5, 7, 13, -2, -5, -12, 2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0372] PASS | output=OK | pred=OK
+              ├─ EXP : [-12, -11, -9, -3, -20, -17, 3, -24, -32, -32]
+              ├─ DUT : [-12, -11, -9, -3, -20, -17, 3, -24, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0373] PASS | output=OK | pred=OK
+              ├─ EXP : [1, -31, -9, -5, -19, -18, -16, -32, -32, 19]
+              ├─ DUT : [1, -31, -9, -5, -19, -18, -16, -32, -32, 19]
+              └─ PRED: EXP=9 DUT=9
+[TEST 0374] PASS | output=OK | pred=OK
+              ├─ EXP : [-12, -20, 7, 20, -32, -22, -10, -32, -32, -32]
+              ├─ DUT : [-12, -20, 7, 20, -32, -22, -10, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0375] PASS | output=OK | pred=OK
+              ├─ EXP : [3, -14, 12, 19, -2, -5, -32, -20, -32, -32]
+              ├─ DUT : [3, -14, 12, 19, -2, -5, -32, -20, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0376] PASS | output=OK | pred=OK
+              ├─ EXP : [2, -17, 13, 17, -16, -13, -29, -15, -32, -32]
+              ├─ DUT : [2, -17, 13, 17, -16, -13, -29, -15, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0377] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -10, 9, 15, 6, -17, -23, 3, -32, -32]
+              ├─ DUT : [14, -10, 9, 15, 6, -17, -23, 3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0378] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -29, -13, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -29, -13, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0379] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -19, 16, 24, -6, -14, -20, -13, -32, -32]
+              ├─ DUT : [-1, -19, 16, 24, -6, -14, -20, -13, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0380] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -30, -20, -32, -25, 25, -32, -32, -32]
+              ├─ DUT : [-32, -32, -30, -20, -32, -25, 25, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0381] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -26, -15, -22, -15, -19, 14, -32, -32, -32]
+              ├─ DUT : [-32, -26, -15, -22, -15, -19, 14, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0382] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -28, 8, 18, -6, -16, -32, -13, -32, -32]
+              ├─ DUT : [12, -28, 8, 18, -6, -16, -32, -13, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0383] PASS | output=OK | pred=OK
+              ├─ EXP : [-21, -16, 10, 10, -11, -1, -21, -32, -32, -32]
+              ├─ DUT : [-21, -16, 10, 10, -11, -1, -21, -32, -32, -32]
+              └─ PRED: EXP=2 DUT=2
+[TEST 0384] PASS | output=OK | pred=OK
+              ├─ EXP : [-27, -10, 5, 11, 6, 0, -12, -32, -32, -32]
+              ├─ DUT : [-27, -10, 5, 11, 6, 0, -12, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0385] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -32, -32, -32, -32, 31, -32, -32, -32]
+              ├─ DUT : [-32, -32, -32, -32, -32, -32, 31, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0386] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -21, 12, 22, 7, -13, -32, -5, -32, -32]
+              ├─ DUT : [14, -21, 12, 22, 7, -13, -32, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0387] PASS | output=OK | pred=OK
+              ├─ EXP : [-24, -32, -19, -17, -32, -32, 26, -32, -32, -32]
+              ├─ DUT : [-24, -32, -19, -17, -32, -32, 26, -32, -32, -32]
+              └─ PRED: EXP=6 DUT=6
+[TEST 0388] PASS | output=OK | pred=OK
+              ├─ EXP : [8, 5, 9, 20, -2, -15, -21, 11, -32, -32]
+              ├─ DUT : [8, 5, 9, 20, -2, -15, -21, 11, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0389] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -5, 14, -32, 1, -24, -32, -32, -32]
+              ├─ DUT : [-32, -32, -5, 14, -32, 1, -24, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0390] PASS | output=OK | pred=OK
+              ├─ EXP : [9, -2, 6, 17, -3, -22, -20, 2, -32, -32]
+              ├─ DUT : [9, -2, 6, 17, -3, -22, -20, 2, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0391] PASS | output=OK | pred=OK
+              ├─ EXP : [-1, -28, 6, 15, -1, -19, -16, -26, -32, -16]
+              ├─ DUT : [-1, -28, 6, 15, -1, -19, -16, -26, -32, -16]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0392] PASS | output=OK | pred=OK
+              ├─ EXP : [-3, 7, 5, 15, -4, -12, -15, -14, -32, -32]
+              ├─ DUT : [-3, 7, 5, 15, -4, -12, -15, -14, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0393] PASS | output=OK | pred=OK
+              ├─ EXP : [13, -28, 8, 16, 2, -8, -18, -5, -32, -32]
+              ├─ DUT : [13, -28, 8, 16, 2, -8, -18, -5, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0394] PASS | output=OK | pred=OK
+              ├─ EXP : [14, -12, 8, 16, -7, -16, -22, -4, -32, -32]
+              ├─ DUT : [14, -12, 8, 16, -7, -16, -22, -4, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0395] PASS | output=OK | pred=OK
+              ├─ EXP : [18, -12, 13, 19, 2, -10, -31, -7, -32, -32]
+              ├─ DUT : [18, -12, 13, 19, 2, -10, -31, -7, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0396] PASS | output=OK | pred=OK
+              ├─ EXP : [-20, 3, -1, 11, -3, -7, -4, -10, -32, -32]
+              ├─ DUT : [-20, 3, -1, 11, -3, -7, -4, -10, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0397] PASS | output=OK | pred=OK
+              ├─ EXP : [12, -19, 8, 21, 7, -22, -32, -3, -32, -32]
+              ├─ DUT : [12, -19, 8, 21, 7, -22, -32, -3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0398] PASS | output=OK | pred=OK
+              ├─ EXP : [-19, -14, -10, -7, -1, -17, -2, -32, -32, -31]
+              ├─ DUT : [-19, -14, -10, -7, -1, -17, -2, -32, -32, -31]
+              └─ PRED: EXP=4 DUT=4
+[TEST 0399] PASS | output=OK | pred=OK
+              ├─ EXP : [-32, -32, -4, 12, -32, -12, -8, -32, -32, -32]
+              ├─ DUT : [-32, -32, -4, 12, -32, -12, -8, -32, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+[TEST 0400] PASS | output=OK | pred=OK
+              ├─ EXP : [19, -5, 12, 21, 6, -16, -31, 3, -32, -32]
+              ├─ DUT : [19, -5, 12, 21, 6, -16, -31, 3, -32, -32]
+              └─ PRED: EXP=3 DUT=3
+
+============================================================
+                       TEST SUMMARY
+============================================================
+ Total Tests : 400
+ Passed      : 400
+ Failed      : 0
+------------------------------------------------------------
+ Result      : *** ALL TESTS PASSED ***
+============================================================
+Simulation complete via $finish(1) at time 136370 NS + 0
+../tb/tb_kan.sv:218     $finish;
+xcelium> exit
+TOOL:	xrun(64)	20.09-s001: Exiting on Sep 15, 2026 at 10:27:21 EDT  (total: 00:00:03)

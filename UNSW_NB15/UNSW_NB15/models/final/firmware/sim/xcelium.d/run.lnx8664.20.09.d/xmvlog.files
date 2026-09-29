@@ -1,0 +1,17 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_core_pkg.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/layer_0_lut_pkg.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/layer_1_lut_pkg.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/layer_2_lut_pkg.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/gte_comp_sign.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/registers.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/lut_rom.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/single_port_ram.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/saturate_clip.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_core.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_argmax.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_top.sv
+/home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/tb/tb_kan.sv

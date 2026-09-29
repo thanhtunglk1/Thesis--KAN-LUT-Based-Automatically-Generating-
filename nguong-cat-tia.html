@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ngưỡng cắt tỉa τ(e)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E14;
+    --panel:#10161F;
+    --panel-border:#1E2733;
+    --grid-major:rgba(255,255,255,0.07);
+    --grid-minor:rgba(255,255,255,0.035);
+    --axis:rgba(255,255,255,0.28);
+    --text:#E6EDF3;
+    --muted:#7E8B99;
+    --trace:#FFB020;
+    --ref-cyan:#3FD3FF;
+    --ref-red:#FF6B6B;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    min-height:100%;
+  }
+  html,body{height:100%;}
+  .app{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 20px 40px;
+  }
+  header{margin-bottom:20px;}
+  h1{
+    font-size:1.3rem;
+    font-weight:600;
+    margin:0 0 6px;
+    letter-spacing:0.2px;
+  }
+  header p{
+    margin:0;
+    color:var(--muted);
+    font-size:0.9rem;
+    line-height:1.5;
+    max-width:64ch;
+  }
+  .layout{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .controls{
+    flex:0 0 280px;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:18px;
+  }
+  .field{margin-bottom:20px;}
+  .field:last-child{margin-bottom:0;}
+  .field-label{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:8px;
+  }
+  .field-label span:first-child{
+    font-size:0.82rem;
+    color:var(--muted);
+  }
+  .field-label .val{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.92rem;
+    color:var(--trace);
+    font-weight:500;
+  }
+  input[type=range]{
+    -webkit-appearance:none;
+    width:100%;
+    height:4px;
+    border-radius:2px;
+    background:#232D3A;
+    outline:none;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:15px;height:15px;border-radius:50%;
+    background:var(--trace);
+    cursor:pointer;
+    border:2px solid #0A0E14;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:15px;height:15px;border-radius:50%;
+    background:var(--trace);
+    cursor:pointer;
+    border:2px solid #0A0E14;
+  }
+  .formula{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid var(--panel-border);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    line-height:1.9;
+    color:var(--muted);
+  }
+  .formula .line{white-space:pre;}
+  .formula .hi{color:var(--text);}
+  .chart-wrap{
+    flex:1;
+    min-width:0;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:10px;
+    height:480px;
+  }
+  #chart{width:100%;height:100%;display:block;}
+  .legend{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:14px;
+    font-size:0.78rem;
+    color:var(--muted);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .swatch{width:12px;height:3px;border-radius:2px;display:inline-block;}
+  @media (max-width:760px){
+    .layout{flex-direction:column;}
+    .controls{flex:1 1 auto;width:100%;}
+    .chart-wrap{width:100%;height:340px;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Ngưỡng cắt tỉa τ(e)</h1>
+    <p>Kéo các thanh trượt để xem đường cong ngưỡng thay đổi theo T (ngưỡng tối đa), e₀ (chu kỳ bắt đầu tăng) và e_f (chu kỳ đạt 95% ngưỡng).</p>
+  </header>
+
+  <div class="layout">
+    <aside class="controls">
+      <div class="field">
+        <div class="field-label"><span>T — ngưỡng tối đa</span><span class="val" id="tVal">0.70</span></div>
+        <input type="range" id="tInput" min="0.05" max="1" step="0.01" value="0.7">
+      </div>
+      <div class="field">
+        <div class="field-label"><span>e₀ — chu kỳ bắt đầu</span><span class="val" id="e0Val">5</span></div>
+        <input type="range" id="e0Input" min="0" max="59" step="1" value="5">
+      </div>
+      <div class="field">
+        <div class="field-label"><span>e_f — chu kỳ đạt 95%</span><span class="val" id="efVal">30</span></div>
+        <input type="range" id="efInput" min="1" max="60" step="1" value="30">
+      </div>
+      <div class="field">
+        <div class="field-label"><span>Phạm vi trục hoành</span><span class="val" id="eMaxVal">60</span></div>
+        <input type="range" id="eMaxInput" min="10" max="300" step="5" value="60">
+      </div>
+
+      <div class="formula" id="formula"></div>
+    </aside>
+
+    <main class="chart-wrap">
+      <canvas id="chart"></canvas>
+    </main>
+  </div>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:var(--trace)"></i>τ(e)</span>
+    <span><i class="swatch" style="background:var(--ref-cyan)"></i>T và 0.95·T</span>
+    <span><i class="swatch" style="background:var(--ref-red)"></i>e₀ và e_f</span>
+  </div>
+</div>
+
+<script>
+const tInput = document.getElementById('tInput');
+const e0Input = document.getElementById('e0Input');
+const efInput = document.getElementById('efInput');
+const eMaxInput = document.getElementById('eMaxInput');
+const tVal = document.getElementById('tVal');
+const e0Val = document.getElementById('e0Val');
+const efVal = document.getElementById('efVal');
+const eMaxVal = document.getElementById('eMaxVal');
+const formulaEl = document.getElementById('formula');
+const canvas = document.getElementById('chart');
+const ctx = canvas.getContext('2d');
+
+function tau(e, T, e0, ef){
+  if(e <= e0) return 0;
+  if(e <= ef) return T*(1 - Math.exp(-Math.log(20) * (e-e0)/(ef-e0)));
+  return T;
+}
+
+function niceStep(max){
+  const raw = max/8;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const norm = raw/mag;
+  let step;
+  if(norm < 1.5) step = 1;
+  else if(norm < 3.5) step = 2;
+  else if(norm < 7.5) step = 5;
+  else step = 10;
+  return step*mag;
+}
+
+function syncBounds(){
+  const eMax = parseFloat(eMaxInput.value);
+  e0Input.max = eMax - 1;
+  if(parseFloat(e0Input.value) > eMax - 1) e0Input.value = eMax - 1;
+  efInput.min = parseFloat(e0Input.value) + 1;
+  efInput.max = eMax;
+  if(parseFloat(efInput.value) <= parseFloat(e0Input.value)) efInput.value = parseFloat(e0Input.value)+1;
+  if(parseFloat(efInput.value) > eMax) efInput.value = eMax;
+}
+
+function draw(){
+  syncBounds();
+  const T = parseFloat(tInput.value);
+  const e0 = parseFloat(e0Input.value);
+  const ef = parseFloat(efInput.value);
+  const eMax = parseFloat(eMaxInput.value);
+
+  tVal.textContent = T.toFixed(2);
+  e0Val.textContent = e0.toFixed(0);
+  efVal.textContent = ef.toFixed(0);
+  eMaxVal.textContent = '0–' + eMax.toFixed(0);
+
+  formulaEl.innerHTML =
+    '<div class="line">τ(e) = 0,                              e ≤ <span class="hi">'+e0.toFixed(0)+'</span></div>' +
+    '<div class="line">τ(e) = <span class="hi">'+T.toFixed(2)+'</span>·(1 − exp(−ln20·(e−'+e0.toFixed(0)+')/'+(ef-e0).toFixed(0)+')),</div>' +
+    '<div class="line">          '+e0.toFixed(0)+' &lt; e ≤ <span class="hi">'+ef.toFixed(0)+'</span></div>' +
+    '<div class="line">τ(e) = <span class="hi">'+T.toFixed(2)+'</span>,                          e &gt; '+ef.toFixed(0)+'</div>';
+
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = Math.max(1, rect.width*dpr);
+  canvas.height = Math.max(1, rect.height*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const W = rect.width, H = rect.height;
+  ctx.clearRect(0,0,W,H);
+
+  const padL = 50, padR = 20, padT = 18, padB = 38;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+  const yMax = 1.05;
+
+  const xPix = e => padL + (e/eMax)*plotW;
+  const yPix = v => padT + (1 - v/yMax)*plotH;
+
+  ctx.font = '11px IBM Plex Mono, monospace';
+  ctx.fillStyle = 'rgba(230,237,243,0.45)';
+
+  // y grid
+  ctx.strokeStyle = 'var(--grid-minor)';
+  for(let v=0; v<=1.0001; v+=0.1){
+    const y = yPix(v);
+    ctx.strokeStyle = (Math.abs(v-1)<0.001) ? 'var(--grid-major)'.replace('var(--grid-major)','rgba(255,255,255,0.09)') : 'rgba(255,255,255,0.035)';
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(padL+plotW,y); ctx.stroke();
+    ctx.textAlign='right'; ctx.textBaseline='middle';
+    ctx.fillText(v.toFixed(1), padL-8, y);
+  }
+  // x grid
+  const xStep = niceStep(eMax);
+  for(let e=0; e<=eMax+0.001; e+=xStep){
+    const x = xPix(e);
+    ctx.strokeStyle = 'rgba(255,255,255,0.035)';
+    ctx.beginPath(); ctx.moveTo(x,padT); ctx.lineTo(x,padT+plotH); ctx.stroke();
+    ctx.textAlign='center'; ctx.textBaseline='top';
+    ctx.fillText(Math.round(e), x, padT+plotH+8);
+  }
+
+  // axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.28)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(padL, padT); ctx.lineTo(padL, padT+plotH); ctx.lineTo(padL+plotW, padT+plotH);
+  ctx.stroke();
+
+  // reference lines T, 0.95T
+  ctx.setLineDash([4,4]);
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = 'rgba(63,211,255,0.55)';
+  [T, 0.95*T].forEach((v,i)=>{
+    const y = yPix(v);
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(padL+plotW,y); ctx.stroke();
+    ctx.fillStyle = 'rgba(63,211,255,0.85)';
+    ctx.textAlign='left'; ctx.textBaseline='bottom';
+    ctx.fillText(i===0 ? 'T='+v.toFixed(2) : '0.95T='+v.toFixed(2), padL+plotW-90, y-3);
+  });
+
+  // e0, ef verticals
+  ctx.strokeStyle = 'rgba(255,107,107,0.55)';
+  [[e0,'e₀'],[ef,'e_f']].forEach(([e,label])=>{
+    const x = xPix(e);
+    ctx.beginPath(); ctx.moveTo(x,padT); ctx.lineTo(x,padT+plotH); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,107,107,0.9)';
+    ctx.textAlign='center'; ctx.textBaseline='top';
+    ctx.fillText(label, x, padT+2);
+  });
+  ctx.setLineDash([]);
+
+  // curve
+  ctx.strokeStyle = '#FFB020';
+  ctx.lineWidth = 2.4;
+  ctx.beginPath();
+  const N = 400;
+  for(let i=0;i<=N;i++){
+    const e = eMax*i/N;
+    const v = tau(e,T,e0,ef);
+    const x = xPix(e), y = yPix(v);
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+  ctx.stroke();
+
+  // marker at ef
+  const mx = xPix(ef), my = yPix(0.95*T);
+  ctx.fillStyle = '#FFB020';
+  ctx.beginPath(); ctx.arc(mx,my,4,0,Math.PI*2); ctx.fill();
+}
+
+[tInput,e0Input,efInput,eMaxInput].forEach(el=>el.addEventListener('input', draw));
+window.addEventListener('resize', draw);
+draw();
+</script>
+</body>
+</html>

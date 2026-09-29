@@ -1,0 +1,2 @@
+s1(15Sep2026:10:26:27):  xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 
+s2(15Sep2026:10:27:18):  xrun +xm64bit -sv -f ../sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 

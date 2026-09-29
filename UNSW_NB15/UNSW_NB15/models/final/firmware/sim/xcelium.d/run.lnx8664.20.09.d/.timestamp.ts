@@ -1,0 +1,13 @@
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_core.sv
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/layer_2_lut_pkg.sv
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_core_pkg.sv
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/layer_0_lut_pkg.sv
+1789482435 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/tb/tb_kan.sv
+1786548352 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/saturate_clip.sv
+1783181798 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/registers.sv
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/layer_1_lut_pkg.sv
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_argmax.sv
+1789481636 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/kan_top.sv
+1788628343 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/single_port_ram.sv
+1786551946 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/gte_comp_sign.sv
+1783782403 /home/admin/Mount/KANELE-main/me/UNSW_NB15/models/final/firmware/src/lut_rom.sv

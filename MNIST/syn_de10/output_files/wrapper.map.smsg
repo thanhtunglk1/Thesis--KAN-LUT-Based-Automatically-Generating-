@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at top.sv(61): object "TX_TRANS" differs only in case from object "tx_trans" in the same scope File: E:/virtual_machine/Mount/KANELE-main/me/system_trans/uart/top.sv Line: 61

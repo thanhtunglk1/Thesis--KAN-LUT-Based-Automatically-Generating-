@@ -1,0 +1,32 @@
+{
+  "layers": [
+    784,
+    64,
+    10
+  ],
+  "grid_range": [
+    -8,
+    8
+  ],
+  "layers_width": [
+    1,
+    6,
+    6
+  ],
+  "grid_size": 5,
+  "spline_order": 3,
+  "grid_eps": 0.03,
+  "base_activation": "nn.SiLU",
+  "batch_size": 256,
+  "num_epochs": 100,
+  "learning_rate": 0.01,
+  "weight_decay": 0.0001,
+  "scheduler_gamma": 0.99,
+  "prune_threshold": 0.2,
+  "pecentage_model": 0.05,
+  "target_epoch": 20,
+  "warmup_epochs": 10,
+  "random_seed": 1,
+  "resume": false,
+  "resume_path": "models/20260501143226/MNIST_Acc0.9247_Loss0.24512626975774765_Epoch100_Remainding0.0587.pth"
+}

@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++xm64bit
+-sv
+-f
+../sim/flist.f
+-timescale
+1ns/1ns
++ntb_random_seed=automatic
++access+rcw

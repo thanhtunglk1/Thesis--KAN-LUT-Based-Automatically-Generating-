@@ -1,0 +1,9 @@
+
+State Machine - |DE10_LITE_Golden_Top|top:system_test|uart_top:uart_ip|uart_tx:uart_tx|p_state
+Name p_state.STOP_II p_state.STOP_I p_state.PARITY p_state.TRANSMITTER p_state.START p_state.IDLE 
+p_state.IDLE 0 0 0 0 0 0 
+p_state.START 0 0 0 0 1 1 
+p_state.TRANSMITTER 0 0 0 1 0 1 
+p_state.PARITY 0 0 1 0 0 1 
+p_state.STOP_I 0 1 0 0 0 1 
+p_state.STOP_II 1 0 0 0 0 1 

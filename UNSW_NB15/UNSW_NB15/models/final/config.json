@@ -1,0 +1,34 @@
+{
+  "layers": [
+    42,
+    64,
+    32,
+    10
+  ],
+  "grid_range": [
+    -8,
+    8
+  ],
+  "layers_width": [
+    6,
+    6,
+    6,
+    6
+  ],
+  "grid_size": 20,
+  "spline_order": 7,
+  "grid_eps": 0.05,
+  "base_activation": "nn.SiLU",
+  "batch_size": 256,
+  "num_epochs": 100,
+  "learning_rate": 0.001,
+  "weight_decay": 0.001,
+  "scheduler_gamma": 0.9,
+  "prune_threshold": 0.1,
+  "pecentage_model": 0.5,
+  "target_epoch": 20,
+  "warmup_epochs": 10,
+  "random_seed": 1,
+  "resume": false,
+  "resume_path": ""
+}

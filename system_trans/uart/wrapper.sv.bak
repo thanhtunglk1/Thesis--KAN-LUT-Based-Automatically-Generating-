@@ -1,0 +1,33 @@
+module wrapper (
+	input  logic MAX10_CLK1_50,
+	input  logic [ 9:0] SW,
+	inout  logic [ 1:0] ARDUINO_IO,
+	output logic [ 7:0] HEX0,
+    output logic [ 7:0] HEX1,
+	output logic [ 9:0] LEDR
+);
+
+
+localparam BAUD_RATE = 115200;
+
+logic rst_n;
+
+assign rst_n = SW[9];
+
+logic [3:0] state;
+
+
+top  #(
+	.CLK_FREQ (50_000_000),
+    .BAUD_RATE(BAUD_RATE)
+) system_test (
+    .i_clk(MAX10_CLK1_50),
+    .i_rst_n(rst_n),
+    .i_rx_serial(ARDUINO_IO[0]),
+    .o_tx_serial(ARDUINO_IO[1]),
+	.o_hex_class(HEX0[7:0]),
+	.o_hex_state(HEX1[7:0]),
+    .o_counter(LEDR)
+);
+
+endmodule

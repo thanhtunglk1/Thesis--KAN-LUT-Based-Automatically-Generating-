@@ -1,0 +1,175 @@
+{
+    "dataset": "UNSW-NB15",
+    "num_classes": 10,
+    "num_features": 42,
+    "selected_features": [
+        "sttl",
+        "sbytes",
+        "byte_ratio",
+        "service_dns",
+        "service_ftp",
+        "service_ftp-data",
+        "service_http",
+        "service_other",
+        "service_pop3",
+        "service_smtp",
+        "service_ssh",
+        "service_unknown",
+        "ct_srv_dst",
+        "ct_dst_sport_ltm",
+        "ct_dst_src_ltm",
+        "ct_srv_src",
+        "smean",
+        "ct_state_ttl",
+        "ct_src_dport_ltm",
+        "rate",
+        "proto_any",
+        "proto_arp",
+        "proto_gre",
+        "proto_ipv6",
+        "proto_mobile",
+        "proto_ospf",
+        "proto_other",
+        "proto_pim",
+        "proto_rsvp",
+        "proto_sctp",
+        "proto_sep",
+        "proto_sun-nd",
+        "proto_swipe",
+        "proto_tcp",
+        "proto_udp",
+        "proto_unas",
+        "tcprtt",
+        "dbytes",
+        "ct_dst_ltm",
+        "dur",
+        "dmean",
+        "sinpkt"
+    ],
+    "hard_range": [
+        -1.0,
+        1.0
+    ],
+    "dtype": "float32",
+    "rare_threshold": 0.001,
+    "winsorize_percentile": 0.95,
+    "variance_threshold": 0.001,
+    "correlation_threshold": 0.95,
+    "top_k_units": 19,
+    "random_state": 1,
+    "kept_categories": {
+        "proto": [
+            "tcp",
+            "udp",
+            "unas",
+            "arp",
+            "ospf",
+            "sctp",
+            "any",
+            "gre",
+            "mobile",
+            "pim",
+            "sun-nd",
+            "ipv6",
+            "rsvp",
+            "swipe",
+            "sep"
+        ],
+        "service": [
+            "unknown",
+            "dns",
+            "http",
+            "smtp",
+            "ftp-data",
+            "ftp",
+            "ssh",
+            "pop3"
+        ],
+        "state": [
+            "INT",
+            "FIN",
+            "CON",
+            "REQ"
+        ]
+    },
+    "onehot_group_sizes": {
+        "proto": 16,
+        "service": 9,
+        "state": 5
+    },
+    "range_stats": {
+        "sbytes": {
+            "test_out_of_range_count": 11
+        },
+        "smean": {
+            "test_out_of_range_count": 11
+        },
+        "sbytes_per_pkt": {
+            "test_out_of_range_count": 11
+        }
+    },
+    "class_distribution": {
+        "train": {
+            "Normal": 44800,
+            "Generic": 32000,
+            "Exploits": 26714,
+            "Fuzzers": 14547,
+            "DoS": 9811,
+            "Reconnaissance": 8393,
+            "Analysis": 1600,
+            "Backdoor": 1397,
+            "Shellcode": 906,
+            "Worms": 104
+        },
+        "val": {
+            "Normal": 11200,
+            "Generic": 8000,
+            "Exploits": 6679,
+            "Fuzzers": 3637,
+            "DoS": 2453,
+            "Reconnaissance": 2098,
+            "Analysis": 400,
+            "Backdoor": 349,
+            "Shellcode": 227,
+            "Worms": 26
+        },
+        "test": {
+            "Normal": 37000,
+            "Generic": 18871,
+            "Exploits": 11132,
+            "Fuzzers": 6062,
+            "DoS": 4089,
+            "Reconnaissance": 3496,
+            "Analysis": 677,
+            "Backdoor": 583,
+            "Shellcode": 378,
+            "Worms": 44
+        }
+    },
+    "attack_cat_mapping": {
+        "id_to_name": {
+            "0": "Analysis",
+            "1": "Backdoor",
+            "2": "DoS",
+            "3": "Exploits",
+            "4": "Fuzzers",
+            "5": "Generic",
+            "6": "Normal",
+            "7": "Reconnaissance",
+            "8": "Shellcode",
+            "9": "Worms"
+        },
+        "name_to_id": {
+            "Analysis": 0,
+            "Backdoor": 1,
+            "DoS": 2,
+            "Exploits": 3,
+            "Fuzzers": 4,
+            "Generic": 5,
+            "Normal": 6,
+            "Reconnaissance": 7,
+            "Shellcode": 8,
+            "Worms": 9
+        }
+    }
+}
