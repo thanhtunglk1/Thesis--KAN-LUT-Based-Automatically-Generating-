@@ -240,7 +240,7 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 
 `layer_depth = ceil(log_{n_add}(số cạnh active nhiều nhất của một nút trong lớp))`.
 
-![alt text](layer_depth.png)
+![](./image/layer_depth.png)
 
 **Argmax** (`build_argmax_sv`): cây so sánh nhị phân bằng `gte_comp_sign` (so sánh có dấu), truyền cả giá trị và chỉ số, tự chèn thanh ghi pipeline sau mỗi `levels_per_stage` tầng. Với 10 lớp: độ sâu cây = 4, `levels_per_stage=2` → 2 stage. Nút lẻ được chuyển thẳng lên tầng trên.
 
