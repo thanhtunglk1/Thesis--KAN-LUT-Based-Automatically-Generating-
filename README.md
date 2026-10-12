@@ -121,6 +121,7 @@ Mỗi cạnh `(out, in)` có 1 bit mask trong `spline_selector`:
 
 Kết quả là mạng thưa; số cạnh còn lại = số ROM sẽ được sinh ra.
 
+![](./image/prune_ex.png)
 
 
 **d) Lưu checkpoint.**
@@ -220,14 +221,14 @@ i_vector[i] / out_{l-1}_i_reg
       lớp giữa: thanh ghi node_l_j → làm địa chỉ cho lớp sau
       lớp cuối: nối thẳng ra o_vector[j]
 ```
+![](./image/sign_extend.png)
 
 Điểm quan trọng để phần cứng **khớp bit** với golden model:
 
 - **Bề rộng cộng đủ lớn:** mỗi tầng cộng mở rộng thêm `ceil(log2(n_add))` bit biểu diễn nên không bao giờ tràn giữa chừng. Chỉ bão hòa **một lần ở cuối**, giống hệt `clip` trong golden model.
 - **Địa chỉ ROM = mã bù 2 của giá trị có dấu.** Mã bù 2 của số âm nằm ở nửa trên của không gian địa chỉ, nên `write_pkg_file` **hoán đổi hai nửa** của bảng (`values[half:] + values[:half]`) để địa chỉ bit thô trỏ đúng phần tử.
-- **Nút không còn cạnh vào:** không sinh logic (nhờ forward pruning, cạnh ra của nó cũng đã bị cắt).
-
 ![](./image/LUT_mapping.png)
+- **Nút không còn cạnh vào:** không sinh logic (nhờ forward pruning, cạnh ra của nó cũng đã bị cắt).
 
 **Độ trễ (latency)** được tính tự động:
 
@@ -238,6 +239,8 @@ tổng         = Σ các lớp + số stage argmax, +1 thanh ghi đầu ra ở k
 ```
 
 `layer_depth = ceil(log_{n_add}(số cạnh active nhiều nhất của một nút trong lớp))`.
+
+![alt text](layer_depth.png)
 
 **Argmax** (`build_argmax_sv`): cây so sánh nhị phân bằng `gte_comp_sign` (so sánh có dấu), truyền cả giá trị và chỉ số, tự chèn thanh ghi pipeline sau mỗi `levels_per_stage` tầng. Với 10 lớp: độ sâu cây = 4, `levels_per_stage=2` → 2 stage. Nút lẻ được chuyển thẳng lên tầng trên.
 
